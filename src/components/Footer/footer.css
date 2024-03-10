@@ -1,0 +1,150 @@
+footer {
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  padding: 4.8rem 0;
+  z-index: 9;
+  position: relative;
+}
+
+.footer-upper-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+.privacy-box,
+.terms-box {
+  width: 100%;
+}
+
+.privacy-heading,
+.terms-heading {
+  font-weight: 600;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.privacy-heading:hover,
+.terms-heading:hover {
+  color: #a30cfd;
+  text-shadow: 0px 0px 20px rgba(163, 12, 253, 0.8);
+}
+
+.privacy-paragraph,
+.terms-paragraph {
+  font-weight: 500;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+}
+
+.footer-message,
+.footer-email {
+  border-radius: 1.6rem;
+  padding: 1.2rem 1.6rem;
+  background-color: transparent;
+  border: 1px solid #a30cfd;
+  color: #fff;
+}
+
+input::placeholder,
+textarea::placeholder,
+input,
+textarea {
+  color: #fff;
+  font-size: 1.6rem;
+}
+
+.footer-message {
+  height: 100px;
+  resize: none;
+}
+
+.footer-lower-container {
+  padding-top: 2.4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.copyright-box p {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.star-13 {
+  bottom: -300%;
+  left: 20%;
+}
+
+.star-14 {
+  bottom: -310%;
+  left: 40%;
+}
+
+.star-15 {
+  bottom: -315%;
+  left: 70%;
+}
+
+@media only screen and (max-width: 1250px) {
+  .btn-submit {
+    padding: 10px 20px;
+    font-size: 1.4rem;
+  }
+
+  .privacy-heading,
+  .terms-heading {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 938px) {
+  footer {
+    padding: 1.6rem;
+  }
+
+  .btn-submit {
+    padding: 8px 1.6rem;
+    font-size: 1.2rem;
+  }
+
+  .privacy-heading,
+  .terms-heading {
+    font-size: 1.6rem;
+  }
+
+  .copyright-box p,
+  .privacy-paragraph,
+  .terms-paragraph {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 712px) {
+  .footer-upper-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .input-box {
+    padding: 3.6rem;
+    grid-column: 1/3;
+  }
+
+  .privacy-box,
+  .terms-box {
+    padding: 0 3.6rem;
+  }
+
+  .footer-lower-container {
+    padding: 2.4rem 3.6rem;
+  }
+}
