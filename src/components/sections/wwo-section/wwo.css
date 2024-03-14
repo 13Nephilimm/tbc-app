@@ -1,0 +1,72 @@
+/***********************************/
+/********* WHAT WE OFFER ***********/
+/***********************************/
+.what-we-offer-section {
+  position: relative;
+  margin-top: 9.6rem;
+  padding: 4.8rem 0;
+}
+
+.what-we-offer-heading {
+  text-align: center;
+  font-weight: 700;
+  font-size: 3.6rem;
+  color: #fff;
+}
+
+.what-we-offer-container,
+.what-we-offer-container-2 {
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-columns: 60fr 40fr;
+  padding: 9.6rem 0;
+  position: relative;
+  gap: 3.6rem;
+}
+
+.what-we-offer-container-2 {
+  grid-template-columns: 40fr 60fr;
+  gap: 6.4rem;
+  padding: 0;
+}
+
+.wwo-text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 3.6rem;
+}
+
+.wwo-heading {
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.wwo-description {
+  color: #adb2b1;
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+
+.star-6 {
+  right: 43%;
+  top: 8%;
+}
+
+.star-7 {
+  right: 10%;
+  top: 47%;
+  transform: rotate(45deg);
+  width: 4.8rem;
+}
+
+.star-8 {
+  bottom: 34%;
+  left: 10%;
+}
+
+.star-9 {
+  right: 25%;
+  bottom: 8%;
+}

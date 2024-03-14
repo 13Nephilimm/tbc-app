@@ -80,21 +80,6 @@ textarea {
   color: #fff;
 }
 
-.star-13 {
-  bottom: -300%;
-  left: 20%;
-}
-
-.star-14 {
-  bottom: -310%;
-  left: 40%;
-}
-
-.star-15 {
-  bottom: -315%;
-  left: 70%;
-}
-
 @media only screen and (max-width: 1250px) {
   .btn-submit {
     padding: 10px 20px;
