@@ -1,6 +1,5 @@
 import React from "react";
 import "./footer.css";
-import logo from "../../assets/logo.png";
 
 const Footer = () => {
   return (
@@ -39,11 +38,11 @@ const Footer = () => {
         </div>
         <div className="footer-lower-container">
           <div className="footer-logo-box">
-            <img src={logo} alt="logo" />
+            <h1 className="logo">PurpleStore</h1>
           </div>
           <div className="copyright-box">
             <p>
-              &copy; 2024 <br /> by Purple Bank
+              &copy; 2024 <br /> by PurpleStore
             </p>
           </div>
         </div>
