@@ -1,0 +1,78 @@
+.contact {
+  padding: 4.8rem 1.6rem;
+}
+
+.container.contact-container {
+  width: 58%;
+  display: grid;
+  grid-template-columns: 30% 58%;
+  gap: 12%;
+}
+
+.contact-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-option {
+  background-color: #a30cfd;
+  border-radius: 1.2rem;
+  padding: 8px;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+}
+
+.contact-option:hover {
+  background-color: transparent;
+  border-color: #a30cfd;
+  box-shadow: 0px 0px 15px 5px rgba(163, 12, 253, 0.3);
+}
+
+.contact-option-icon {
+  font-size: 3.6rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.contact-option a {
+  margin-top: 0.7rem;
+  display: inline-block;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.contact-option h5,
+.contact-option h4 {
+  color: #000;
+  padding: 8px 0;
+  font-size: 1.6rem;
+}
+
+/* ============== FORM ============== */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 1.6rem;
+  background-color: transparent;
+  border: 2px solid #a30cfd;
+  resize: none;
+  color: #fff;
+}
+
+/* ============== MEDIA QUERIES (MEDIUM DEVICES) ============== */
+@media screen and (max-width: 1024px) {
+  .container.contact-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

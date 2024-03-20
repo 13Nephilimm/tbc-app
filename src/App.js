@@ -1,14 +1,17 @@
 import "./App.css";
-import Layout from "./components/Layout/Layout";
-import ProductsGrid from "./components/ProductsGrid/ProductsGrid";
-import SearchBar from "./components/SearchBar/SearchBar";
+import Home from "./pages/home-page/Home";
+import Contact from "./pages/contact-page/Contact";
+import { BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Layout>
-      <SearchBar />
-      <ProductsGrid />
-    </Layout>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
