@@ -16,11 +16,11 @@ const Navbar = () => {
           <Link to="/contact" className="link">
             Contact
           </Link>
-          <Link to="#" className="link">
-            Services
+          <Link to="/blog" className="link">
+            Blog
           </Link>
-          <Link to="#" className="link">
-            FAQs
+          <Link to="/profile" className="link">
+            Profile
           </Link>
         </div>
         <button className="secondary-btn">Sign Up</button>

@@ -13,6 +13,7 @@ const ProductsGrid = () => {
             image={product.image}
             name={product.name}
             description={product.description}
+            btnText={"Add to Cart"}
           />
         );
       })}
