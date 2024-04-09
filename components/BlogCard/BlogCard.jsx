@@ -1,12 +1,13 @@
 import React from "react";
 import "./BlogCard.css";
 import Image from "next/image";
+import img from "../../public/blog-1.jpg";
 
-const BlogCard = ({ image, name, description, date }) => {
+const BlogCard = ({ name, description, date }) => {
   return (
     <div className="blog-card">
       <div className="blog-featured-image">
-        <Image src={image} alt="featured" />
+        <Image src={img} alt="featured" />
       </div>
       <div className="blog-card-text">
         <span className="blog-date">{date}</span>

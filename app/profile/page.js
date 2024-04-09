@@ -5,7 +5,7 @@ import "./profile.css";
 import Layout from "@/components/Layout/Layout";
 import { CgProfile } from "react-icons/cg";
 
-const page = () => {
+const Profile = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -61,4 +61,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Profile;

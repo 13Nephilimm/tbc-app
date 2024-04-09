@@ -1,23 +1,41 @@
-import React from "react";
+"use client";
+
 import "./blog.css";
 import Layout from "@/components/Layout/Layout";
-import blogs from "../blogData";
 import BlogCard from "@/components/BlogCard/BlogCard";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
-const page = () => {
+const Blog = () => {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("https://dummyjson.com/posts");
+        const { posts: nestedBlogs } = await response.json();
+        setBlogs(nestedBlogs);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <Layout>
       <h1 className="main-heading">Blog</h1>
       <div className="blog-container">
         {blogs.map((blog) => {
           return (
-            <BlogCard
-              key={blog.id}
-              name={blog.name}
-              description={blog.description}
-              image={blog.image}
-              date={blog.date}
-            />
+            <Link href={`/blog/${blog.id}`} key={blog.id}>
+              <BlogCard
+                name={blog.title}
+                description={blog.body}
+                date={blog.date}
+              />
+            </Link>
           );
         })}
       </div>
@@ -25,4 +43,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Blog;

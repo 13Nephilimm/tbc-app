@@ -8,7 +8,7 @@ import { RiMessengerLine } from "react-icons/ri";
 import { AiOutlinePhone } from "react-icons/ai";
 import emailjs from "@emailjs/browser";
 
-const page = () => {
+const Contact = () => {
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -91,4 +91,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Contact;

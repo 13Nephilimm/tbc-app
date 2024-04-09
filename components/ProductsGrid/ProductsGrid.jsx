@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import "./ProductsGrid.css";
 import { MdSearch } from "react-icons/md";
 import Card from "../Card/Card";
+import Link from "next/link";
 
 const ProductsGrid = ({ products }) => {
   const [search, setSearch] = useState("");
@@ -12,11 +13,11 @@ const ProductsGrid = ({ products }) => {
   const allProducts = products.filter((product) => {
     return search.toLowerCase() === ""
       ? product
-      : product.name.toLowerCase().includes(search.toLowerCase());
+      : product.title.toLowerCase().includes(search.toLowerCase());
   });
 
   const sortedProducts = sorted
-    ? [...allProducts].sort((a, b) => a.name.localeCompare(b.name))
+    ? [...allProducts].sort((a, b) => a.title.localeCompare(b.name))
     : allProducts;
 
   const toggleSort = () => {
@@ -53,13 +54,14 @@ const ProductsGrid = ({ products }) => {
       <div className="products-grid">
         {sortedProducts.map((product) => {
           return (
-            <Card
-              key={product.id}
-              image={product.image}
-              name={product.name}
-              description={product.description}
-              btnText={"Add to Cart"}
-            />
+            <Link href={`/${product.id}`} key={product.id}>
+              <Card
+                image={product.thumbnail}
+                name={product.title}
+                description={product.description}
+                btnText={"Add to Cart"}
+              />
+            </Link>
           );
         })}
       </div>
