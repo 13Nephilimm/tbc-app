@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "./Header.css";
+import { handleLogout } from "@/app/actions";
 
 const Header = () => {
   return (
@@ -22,7 +23,14 @@ const Header = () => {
             Profile
           </Link>
         </div>
-        <button className="secondary-btn">Sign Up</button>
+        <button
+          className="secondary-btn"
+          onClick={async () => {
+            await handleLogout();
+          }}
+        >
+          Log Out
+        </button>
       </nav>
     </header>
   );

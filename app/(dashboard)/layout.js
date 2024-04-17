@@ -1,8 +1,6 @@
 import { AUTH_COOKIE_KEY } from "../constants";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { login } from "../actions";
-import LoginForm from "@/components/LoginForm/LoginForm";
 
 export default function Layout({ children }) {
   const cookieStore = cookies();
@@ -13,5 +11,6 @@ export default function Layout({ children }) {
   if (!cookie) {
     redirect("/login");
   }
+
   return <>{children}</>;
 }
