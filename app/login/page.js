@@ -11,7 +11,6 @@ export default async function Login() {
   const cookieStore = cookies();
 
   const cookie = cookieStore.get(AUTH_COOKIE_KEY);
-  console.log("cookie", cookie);
 
   if (cookie) {
     redirect("/");

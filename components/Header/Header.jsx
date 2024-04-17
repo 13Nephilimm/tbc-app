@@ -1,8 +1,18 @@
+"use client";
+
 import Link from "next/link";
 import "./Header.css";
 import { handleLogout } from "@/app/actions";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
+  const router = useRouter();
+
+  const logoutBtn = async () => {
+    await handleLogout();
+    router.push("/login");
+  };
+
   return (
     <header>
       <nav>
@@ -23,12 +33,7 @@ const Header = () => {
             Profile
           </Link>
         </div>
-        <button
-          className="secondary-btn"
-          onClick={async () => {
-            await handleLogout();
-          }}
-        >
+        <button className="secondary-btn" onClick={logoutBtn}>
           Log Out
         </button>
       </nav>

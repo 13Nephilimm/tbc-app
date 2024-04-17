@@ -28,5 +28,5 @@ export async function login(data) {
 export async function handleLogout() {
   const logoutCookies = cookies();
   logoutCookies.delete(AUTH_COOKIE_KEY);
-  redirect("/login");
+  // redirect("/login");
 }
