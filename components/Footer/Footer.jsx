@@ -1,18 +1,21 @@
 import "./Footer.css";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer>
       <div className="container">
         <div className="footer-upper-container">
           <div className="privacy-box">
             <a href="#" className="privacy-heading">
-              Privacy Policy
+              {t("privacyPolicy")}
             </a>
           </div>
           <div className="terms-box">
             <a href="#" className="terms-heading">
-              Terms And Conditions
+              {t("termsAndConditions")}
             </a>
           </div>
           <form className="input-box">
@@ -20,18 +23,18 @@ const Footer = () => {
               className="footer-email"
               type="email"
               name="email"
-              placeholder="Your Email"
+              placeholder={t("yourEmail")}
               required
             />
             <textarea
               name="message"
               rows="7"
-              placeholder="Send us your message..."
+              placeholder={t("leaveMessage")}
               className="footer-message"
               required
             ></textarea>
             <button type="submit" className="secondary-btn">
-              Send
+              {t("send")}
             </button>
           </form>
         </div>

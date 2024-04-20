@@ -51,3 +51,9 @@ nav {
   font-size: 24px;
   color: #a30cfd;
 }
+
+.translate-btn {
+  background-color: transparent;
+  cursor: pointer;
+  text-transform: uppercase;
+}

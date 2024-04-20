@@ -5,8 +5,11 @@ import "./ProductsGrid.css";
 import { MdSearch } from "react-icons/md";
 import Card from "../Card/Card";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 const ProductsGrid = ({ products }) => {
+  const { t } = useTranslation();
+
   const [search, setSearch] = useState("");
   const [sorted, setSorted] = useState(false);
 
@@ -42,13 +45,13 @@ const ProductsGrid = ({ products }) => {
           <input
             className="search-input"
             type="text"
-            placeholder="Search..."
+            placeholder={t("search")}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
         <button className="secondary-btn sort-btn" onClick={toggleSort}>
-          Sort
+          {t("sort")}
         </button>
       </div>
       <div className="products-grid">
@@ -59,7 +62,7 @@ const ProductsGrid = ({ products }) => {
                 image={product.thumbnail}
                 name={product.title}
                 description={product.description}
-                btnText={"Add to Cart"}
+                btnText={t("addToCart")}
               />
             </Link>
           );

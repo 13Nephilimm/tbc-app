@@ -4,7 +4,7 @@
   background-color: #1a1d1e;
   box-shadow: 0px 0px 15px 5px rgba(163, 12, 253, 0.3);
   border-radius: 1.6rem;
-  max-height: 44rem;
+  height: 44rem;
   max-width: 28rem;
   transition: all 0.4s;
 }

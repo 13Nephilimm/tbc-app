@@ -5,8 +5,11 @@ import Layout from "@/components/Layout/Layout";
 import BlogCard from "@/components/BlogCard/BlogCard";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 const Blog = () => {
+  const { t } = useTranslation();
+
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
@@ -25,7 +28,7 @@ const Blog = () => {
 
   return (
     <Layout>
-      <h1 className="main-heading">Blog</h1>
+      <h1 className="main-heading">{t("blog")}</h1>
       <div className="blog-container">
         {blogs.map((blog) => {
           return (

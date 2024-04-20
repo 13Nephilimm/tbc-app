@@ -10,9 +10,10 @@
   margin: 0 0 1.6rem 0;
   border: none;
   border-bottom: 1px solid #1a1d1e;
-  background-color: #8b6b9e;
+  background-color: #a30cfd;
+  border-radius: 10px;
   outline: none;
-  padding: 8px 4px 2px 4px;
+  padding: 8px;
   font-size: 2rem;
   color: #1a1d1e;
 }
@@ -25,22 +26,22 @@
   font-size: 2rem;
   text-transform: uppercase;
   font-weight: 400;
-  color: #1a1d1e;
+  color: #a30cfd;
   margin-top: 3.6rem;
 }
 
 .login-icon {
   font-size: 2rem;
   margin-right: 4px;
-  color: #1a1d1e;
+  color: #a30cfd;
 }
 
 .btn-login {
   font-size: 1.6rem;
   padding: 1rem 3.6rem;
   border-radius: 6.4rem;
-  border: 2px solid #1a1d1e;
-  color: #1a1d1e;
+  border: 2px solid #a30cfd;
+  color: #a30cfd;
   font-weight: 500;
   text-transform: uppercase;
   background-color: transparent;
@@ -48,7 +49,7 @@
 }
 
 .btn-login:hover {
-  background-color: #1a1d1e;
-  color: #8b6b9e;
+  background-color: #a30cfd;
+  color: #1a1d1e;
   cursor: pointer;
 }
