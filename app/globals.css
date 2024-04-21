@@ -35,3 +35,16 @@ html {
   scroll-behavior: smooth;
   background-color: #1a1d1e;
 }
+
+[data-theme="dark"] {
+  background-color: #1a1d1e;
+}
+
+/* Light mode */
+[data-theme="light"] {
+  background-color: #1a1d1e75;
+  header,
+  footer {
+    background-color: #1a1d1e;
+  }
+}
