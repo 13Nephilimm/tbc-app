@@ -57,7 +57,7 @@ const ProductsGrid = ({ products }) => {
       <div className="products-grid">
         {sortedProducts.map((product) => {
           return (
-            <Link href={`/${product.id}`} key={product.id}>
+            <Link href={`/products/${product.id}`} key={product.id}>
               <Card
                 image={product.thumbnail}
                 name={product.title}

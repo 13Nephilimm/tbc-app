@@ -1,39 +1,33 @@
-"use client";
-
-import Layout from "@/components/Layout/Layout";
 import React from "react";
 import "./single-blog.css";
-import { useEffect, useState } from "react";
-import img from "../../../public/blog-1.jpg";
+import img from "@/public/blog-1.jpg";
 import Image from "next/image";
 
-const page = ({ params }) => {
-  const [singleBlog, setSingleBlog] = useState([]);
+export async function generateStaticParams() {
+  const res = await fetch(`https://dummyjson.com/posts`);
+  const posts = await res.json();
+  return posts.posts.map((item) => ({
+    id: String(item.id),
+  }));
+}
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `https://dummyjson.com/posts/${params.id}`
-        );
-        const post = await response.json();
-        setSingleBlog(post);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
-      }
-    };
+async function fetchPosts(id) {
+  const res = await fetch(`https://dummyjson.com/posts/${id}`);
+  const posts = await res.json();
+  return posts;
+}
 
-    fetchData();
-  }, []);
+const Page = async ({ params }) => {
+  const { id } = params;
+  const posts = await fetchPosts(id);
+
   return (
-    <Layout>
-      <div className="single-blog-container">
-        <h1 className="single-blog-title">{singleBlog.title}</h1>;
-        <Image src={img} alt="post" className="single-blog-image" />
-        <p className="single-blog-body">{singleBlog.body}</p>
-      </div>
-    </Layout>
+    <div className="single-blog-container">
+      <h1 className="single-blog-title">{posts.title}</h1>;
+      <Image src={img} alt="post" className="single-blog-image" />
+      <p className="single-blog-body">{posts.body}</p>
+    </div>
   );
 };
 
-export default page;
+export default Page;
