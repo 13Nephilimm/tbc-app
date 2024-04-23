@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 const Contact = () => {
   const { t } = useTranslation();
 
-  const form = useRef();
+  const form = useRef<HTMLFormElement | null>(null);
 
   const sendEmail = (e) => {
     e.preventDefault();
