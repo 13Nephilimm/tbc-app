@@ -4,7 +4,7 @@ import { FaUserTie } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import React, { useState } from "react";
 import "./LoginForm.css";
-import { handleLogin } from "@/scripts/login";
+import { handleLogin } from "../../scripts/login";
 
 const LoginForm = () => {
   const [name, setName] = useState("");

@@ -1,7 +1,7 @@
 "use client";
 
-import Layout from "@/components/Layout/Layout";
-import ProductsGrid from "@/components/ProductsGrid/ProductsGrid";
+import Layout from "../../components/Layout/Layout";
+import ProductsGrid from "../../components/ProductsGrid/ProductsGrid";
 import { useEffect, useState } from "react";
 
 export default function Home() {

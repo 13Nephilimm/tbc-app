@@ -1,8 +1,8 @@
 "use client";
 
 import "./blog.css";
-import Layout from "@/components/Layout/Layout";
-import BlogCard from "@/components/BlogCard/BlogCard";
+import Layout from "../../../components/Layout/Layout";
+import BlogCard from "../../../components/BlogCard/BlogCard";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";

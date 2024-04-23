@@ -1,8 +1,8 @@
 import React from "react";
 import "./single-blog.css";
-import img from "@/public/blog-1.jpg";
+import img from "../../../../public/blog-1.jpg";
 import Image from "next/image";
-import Layout from "@/components/Layout/Layout";
+import Layout from "../../../../components/Layout/Layout";
 
 export async function generateStaticParams() {
   const res = await fetch(`https://dummyjson.com/posts`);

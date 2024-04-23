@@ -30,7 +30,7 @@ const Footer = () => {
             />
             <textarea
               name="message"
-              rows="7"
+              rows={7}
               placeholder={t("leaveMessage")}
               className="footer-message"
               required

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import Layout from "@/components/Layout/Layout";
+import Layout from "../../../components/Layout/Layout";
 import "./contact.css";
 import { MdOutlineMail } from "react-icons/md";
 import { RiMessengerLine } from "react-icons/ri";
@@ -80,7 +80,7 @@ const Contact = () => {
             />
             <textarea
               name="message"
-              rows="7"
+              rows={7}
               placeholder={t("leaveMessage")}
               required
             ></textarea>

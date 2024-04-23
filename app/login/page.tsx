@@ -1,5 +1,5 @@
 import "./login.css";
-import LoginForm from "@/components/LoginForm/LoginForm";
+import LoginForm from "../../components/LoginForm/LoginForm";
 
 export default async function Login() {
   return (

@@ -2,15 +2,30 @@
 
 import React, { useState } from "react";
 import "./profile.css";
-import Layout from "@/components/Layout/Layout";
+import Layout from "../../../components/Layout/Layout";
 import { CgProfile } from "react-icons/cg";
 import { useTranslation } from "react-i18next";
 
-const Profile = () => {
+const Profile: React.FC = () => {
   const { t } = useTranslation();
 
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const handleConfirmPasswordChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setConfirmPassword(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    console.log(password, confirmPassword);
+    // password change logic here
+  };
 
   return (
     <Layout>
@@ -34,9 +49,7 @@ const Profile = () => {
               name="password"
               placeholder={t("newPassword")}
               value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
+              onChange={handlePasswordChange}
               required
             />
             <input
@@ -45,15 +58,13 @@ const Profile = () => {
               name="password"
               placeholder={t("confirmNewPassword")}
               value={confirmPassword}
-              onChange={(e) => {
-                setConfirmPassword(e.target.value);
-              }}
+              onChange={handleConfirmPasswordChange}
               required
             />
             <button
-              type="submit"
+              type="button"
               className="secondary-btn btn-password-save"
-              onSubmit={console.log(password, confirmPassword)}
+              onClick={handleSubmit}
             >
               {t("save")}
             </button>

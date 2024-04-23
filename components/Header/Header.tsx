@@ -1,19 +1,18 @@
 "use client";
 
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import "./Header.css";
 import { useTranslation } from "react-i18next";
-import { I18nextProvider } from "react-i18next";
-import i18n from "@/app/i18n";
-import { useEffect, useState } from "react";
-import { handleLogout } from "@/scripts/logout";
+import { handleLogout } from "../../scripts/logout";
+import i18n from "../../app/i18n";
 
-const Header = () => {
+const Header: React.FC = () => {
   // TRANSLATE
-  const { t, i18n } = useTranslation();
+  const { t, i18n: translation } = useTranslation();
 
   const toggleLanguage = () => {
-    const currentLanguage = i18n.language;
+    const currentLanguage = translation.language;
     const nextLanguage = currentLanguage === "en" ? "ge" : "en";
     i18n.changeLanguage(nextLanguage);
   };
@@ -21,7 +20,6 @@ const Header = () => {
   // THEME
   const [theme, setTheme] = useState("light");
 
-  // Function to toggle theme
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
@@ -29,7 +27,6 @@ const Header = () => {
   };
 
   useEffect(() => {
-    // Check if localStorage is available (client-side)
     if (typeof window !== "undefined") {
       const storedTheme = localStorage.getItem("theme");
       if (storedTheme) {
@@ -62,7 +59,7 @@ const Header = () => {
             {t("profile")}
           </Link>
           <button onClick={toggleLanguage} className="link translate-btn">
-            {i18n.language === "en" ? "Geo" : "Eng"}
+            {translation.language === "en" ? "Geo" : "Eng"}
           </button>
         </div>
         <button

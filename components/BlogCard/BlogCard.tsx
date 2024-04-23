@@ -4,7 +4,13 @@ import Image from "next/image";
 import img from "../../public/blog-1.jpg";
 import { useTranslation } from "react-i18next";
 
-const BlogCard = ({ name, description, date }) => {
+interface BlogCardProps {
+  name: string;
+  description: string;
+  date: string;
+}
+
+const BlogCard: React.FC<BlogCardProps> = ({ name, description, date }) => {
   const { t } = useTranslation();
 
   return (

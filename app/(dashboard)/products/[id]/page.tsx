@@ -1,6 +1,6 @@
 import Image from "next/image";
 import "./single-product.css";
-import Layout from "@/components/Layout/Layout";
+import Layout from "../../../../components/Layout/Layout";
 
 export async function generateStaticParams() {
   const res = await fetch(`https://dummyjson.com/products`);
