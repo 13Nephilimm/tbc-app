@@ -1,14 +1,13 @@
 "use client";
-
-import { FaUserTie } from "react-icons/fa";
-import { RiLockPasswordFill } from "react-icons/ri";
 import React, { useState } from "react";
 import "./LoginForm.css";
 import { handleLogin } from "../../scripts/login";
+import { FaUserTie } from "react-icons/fa";
+import { RiLockPasswordFill } from "react-icons/ri";
 
 const LoginForm = () => {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   return (
     <form
@@ -24,7 +23,7 @@ const LoginForm = () => {
       </label>
       <input
         placeholder="Type your username"
-        type="name"
+        type="text"
         name="username"
         value={name}
         onChange={(e) => {
@@ -46,7 +45,9 @@ const LoginForm = () => {
         }}
         required
       />
-      <button className="btn-login">Login</button>
+      <button className="btn-login" type="submit">
+        Login
+      </button>
     </form>
   );
 };

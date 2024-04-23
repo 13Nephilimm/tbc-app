@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
 import "./ProductsGrid.css";
 import { MdSearch } from "react-icons/md";
@@ -7,20 +5,31 @@ import Card from "../Card/Card";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 
-const ProductsGrid = ({ products }) => {
+interface Product {
+  id: number;
+  title: string;
+  thumbnail: string;
+  description: string;
+}
+
+interface Props {
+  products: Product[];
+}
+
+const ProductsGrid = ({ products }: Props) => {
   const { t } = useTranslation();
 
-  const [search, setSearch] = useState("");
-  const [sorted, setSorted] = useState(false);
+  const [search, setSearch] = useState<string>("");
+  const [sorted, setSorted] = useState<boolean>(false);
 
-  const allProducts = products.filter((product) => {
+  const allProducts: Product[] = products.filter((product) => {
     return search.toLowerCase() === ""
       ? product
       : product.title.toLowerCase().includes(search.toLowerCase());
   });
 
-  const sortedProducts = sorted
-    ? [...allProducts].sort((a, b) => a.title.localeCompare(b.name))
+  const sortedProducts: Product[] = sorted
+    ? [...allProducts].sort((a, b) => a.title.localeCompare(b.title))
     : allProducts;
 
   const toggleSort = () => {
