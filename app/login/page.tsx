@@ -1,7 +1,7 @@
 import "./login.css";
 import LoginForm from "../../components/LoginForm/LoginForm";
 
-export default async function Login() {
+export default async function Login(): Promise<JSX.Element> {
   return (
     <section className="login-section">
       <div className="login-container">

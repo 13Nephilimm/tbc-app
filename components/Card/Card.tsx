@@ -2,7 +2,14 @@ import React from "react";
 import "./Card.css";
 import Image from "next/image";
 
-const Card = ({ image, name, description, btnText }) => {
+interface CardProps {
+  image: string;
+  name: string;
+  description: string;
+  btnText: string;
+}
+
+const Card: React.FC<CardProps> = ({ image, name, description, btnText }) => {
   return (
     <div className="card">
       <div className="featured-image">
