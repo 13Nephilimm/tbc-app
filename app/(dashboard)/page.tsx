@@ -5,7 +5,7 @@ import ProductsGrid from "../../components/ProductsGrid/ProductsGrid";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
