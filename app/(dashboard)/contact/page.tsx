@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, FormEvent } from "react";
 import Layout from "../../../components/Layout/Layout";
 import "./contact.css";
 import { MdOutlineMail } from "react-icons/md";
@@ -9,31 +9,33 @@ import { AiOutlinePhone } from "react-icons/ai";
 import emailjs from "@emailjs/browser";
 import { useTranslation } from "react-i18next";
 
-const Contact = () => {
+const Contact: React.FC = () => {
   const { t } = useTranslation();
 
-  const form = useRef();
+  const form = useRef<HTMLFormElement | null>(null);
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_hhhcitj",
-        "template_mwurkt4",
-        form.current,
-        "0NA3KLjIitEBGl6tV"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    if (form.current) {
+      emailjs
+        .sendForm(
+          "service_hhhcitj",
+          "template_mwurkt4",
+          form.current,
+          "0NA3KLjIitEBGl6tV"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
 
-    e.target.reset();
+      form.current.reset();
+    }
   };
 
   return (
@@ -45,7 +47,11 @@ const Contact = () => {
               <MdOutlineMail className="contact-option-icon" />
               <h4>{t("email")}</h4>
               <h5>purplestore@gmail.com</h5>
-              <a href="mailto:jekokharabadze@gmail.com" target="_blank">
+              <a
+                href="mailto:jekokharabadze@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {t("sendMessage")}
               </a>
             </article>
@@ -53,7 +59,11 @@ const Contact = () => {
               <RiMessengerLine className="contact-option-icon" />
               <h4>{t("messenger")}</h4>
               <h5>Purple Store</h5>
-              <a href="https://m.me/xarabadzejeko" target="_blank">
+              <a
+                href="https://m.me/xarabadzejeko"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {t("sendMessage")}
               </a>
             </article>
