@@ -7,16 +7,23 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 
+interface Blog {
+  id: number;
+  title: string;
+  body: string;
+  date: string;
+}
+
 const Blog = () => {
   const { t } = useTranslation();
 
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState<Blog[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch("https://dummyjson.com/posts");
-        const { posts: nestedBlogs } = await response.json();
+        const { posts: nestedBlogs }: { posts: Blog[] } = await response.json();
         setBlogs(nestedBlogs);
       } catch (error) {
         console.error("Error fetching blogs:", error);
