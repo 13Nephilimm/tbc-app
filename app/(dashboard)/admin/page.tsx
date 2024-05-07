@@ -36,6 +36,7 @@ export default async function adminPage() {
             Create User
           </button>
         </form>
+        {console.log("test")}
 
         {users.map((user: User) => {
           return (
