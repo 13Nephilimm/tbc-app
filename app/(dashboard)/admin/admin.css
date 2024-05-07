@@ -1,0 +1,45 @@
+.admin-heading {
+  font-size: 6.4rem;
+  text-align: center;
+  color: #fff;
+}
+
+.user-info {
+  font-size: 2.4rem;
+  color: #fff;
+  padding: 1.6rem;
+}
+
+.create-user-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 120rem;
+  font-size: 1.6rem;
+  margin: 0 auto;
+}
+
+.create-user-form input {
+  width: 35rem;
+  padding: 4px;
+  color: #000;
+  margin: 1.2rem auto;
+}
+
+.create-user-form input::placeholder {
+  color: #3d3c3c;
+}
+
+.create-user-form button {
+  width: 35rem;
+  margin: 0 auto;
+  font-size: 1.6rem;
+}
+
+.single-user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem;
+  border: 3px solid #000;
+  margin: 1.6rem;
+}
