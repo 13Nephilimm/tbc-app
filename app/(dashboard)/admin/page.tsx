@@ -1,8 +1,9 @@
 import React from "react";
 import "./admin.css";
-import { BASE_URL, User, deleteUser, getUsers } from "../../../api";
+import { BASE_URL, User, deleteUser, getUsers, updateUser } from "../../../api";
 import Layout from "../../../components/Layout/Layout";
 import UserDeleteButton from "../../../components/UserDeleteButton/UserDeleteButton";
+import UpdateUserButton from "../../../components/UpdateUserButton/UpdateUserButton";
 
 export default async function adminPage() {
   const users = await getUsers();
@@ -24,9 +25,14 @@ export default async function adminPage() {
     await deleteUser(id);
   };
 
+  const updateUserAction = async (id: number, updatedUser: User) => {
+    "use server";
+    await updateUser(id, updatedUser);
+  };
+
   return (
     <Layout>
-      <div>
+      <div className="admin-panel-container">
         <h1 className="admin-heading">Admin Page</h1>
         <form action={createUser} className="create-user-form">
           <input type="text" name="name" placeholder="name" required />
@@ -36,7 +42,6 @@ export default async function adminPage() {
             Create User
           </button>
         </form>
-        {console.log("test")}
 
         {users.map((user: User) => {
           return (
@@ -46,7 +51,14 @@ export default async function adminPage() {
                 <h2 className="user-info">Email: {user.email}</h2>
                 <h2 className="user-info">Age: {user.age}</h2>
               </div>
-              <UserDeleteButton id={user.id} deleteUser={deleteUserAction} />
+              <div className="user-buttons-container">
+                <UserDeleteButton id={user.id} deleteUser={deleteUserAction} />
+                <UpdateUserButton
+                  id={user.id}
+                  updateUser={updateUserAction}
+                  user={user}
+                />
+              </div>
             </div>
           );
         })}

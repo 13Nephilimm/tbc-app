@@ -19,3 +19,13 @@ export const deleteUser = async (id: number) => {
     method: "DELETE",
   });
 };
+
+export const updateUser = async (id: number, updatedUser: User) => {
+  return await fetch(`${BASE_URL}/api/update-user/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedUser),
+  });
+};
