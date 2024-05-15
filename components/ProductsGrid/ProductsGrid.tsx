@@ -1,22 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import "./ProductsGrid.css";
 import { MdSearch } from "react-icons/md";
 import Card from "../Card/Card";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import Cart from "../Cart/Cart";
+import { useLocalStorage } from "../../hooks";
 
-interface Product {
+export interface Product {
   id: number;
   title: string;
   thumbnail: string;
   description: string;
 }
 
-interface Props {
+export interface Props {
   products: Product[];
 }
 
-const ProductsGrid = ({ products }: Props) => {
+const ProductsGrid: React.FC<Props> = ({ products }) => {
   const { t } = useTranslation();
 
   const [search, setSearch] = useState<string>("");
@@ -46,6 +48,107 @@ const ProductsGrid = ({ products }: Props) => {
     };
   }, [search]);
 
+  // ADD TO CART
+  interface SelectedProduct {
+    id: number;
+    product: Product;
+    count: number;
+  }
+
+  const initialState: SelectedProduct[] = [];
+
+  type Action =
+    | { type: "INCREMENT"; payload: number }
+    | { type: "DECREMENT"; payload: number }
+    | { type: "RESET" }
+    | { type: "UPDATE"; payload: SelectedProduct[] };
+
+  function reducer(
+    state: SelectedProduct[],
+    action: Action
+  ): SelectedProduct[] {
+    switch (action.type) {
+      case "INCREMENT": {
+        const selectedProductIdx = state.findIndex(
+          (p) => p.id === action.payload
+        );
+        if (selectedProductIdx === -1) {
+          return [
+            ...state,
+            {
+              id: action.payload,
+              product: products.find((p) => p.id === action.payload)!,
+              count: 1,
+            },
+          ];
+        }
+        const clone = [...state];
+        const selectedProduct = clone[selectedProductIdx];
+        const updatedSelectedProduct = {
+          ...selectedProduct,
+          count: selectedProduct.count + 1,
+        };
+        clone[selectedProductIdx] = updatedSelectedProduct;
+        return clone;
+      }
+      case "DECREMENT": {
+        const selectedProductIdx = state.findIndex(
+          (p) => p.id === action.payload
+        );
+        if (selectedProductIdx === -1) {
+          return state;
+        }
+        const clone = [...state];
+        const selectedProduct = clone[selectedProductIdx];
+        if (selectedProduct.count === 1) {
+          clone.splice(selectedProductIdx, 1);
+        } else {
+          const updatedSelectedProduct = {
+            ...selectedProduct,
+            count: selectedProduct.count - 1,
+          };
+          clone[selectedProductIdx] = updatedSelectedProduct;
+        }
+        return clone;
+      }
+      case "RESET":
+        return initialState;
+      case "UPDATE":
+        return action.payload;
+      default:
+        return state;
+    }
+  }
+
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const [value, setCachedValue] = useLocalStorage(
+    "selectedProducts",
+    initialState
+  );
+  const [selectedProducts, dispatch] = useReducer<
+    React.Reducer<SelectedProduct[], Action>
+  >(reducer, value);
+
+  useEffect(() => {
+    setCachedValue(selectedProducts);
+  }, [selectedProducts, setCachedValue]);
+
+  const handleClick = (product: Product) => {
+    dispatch({ type: "INCREMENT", payload: product.id });
+  };
+
+  const selectedNumber = selectedProducts.reduce(
+    (acc: number, curr: SelectedProduct) => {
+      return acc + curr.count;
+    },
+    0
+  );
+
   return (
     <>
       <div className="search-section">
@@ -59,6 +162,7 @@ const ProductsGrid = ({ products }: Props) => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
+        <Cart selectedNumber={selectedNumber} isClient={isClient} />
         <button className="secondary-btn sort-btn" onClick={toggleSort}>
           {t("sort")}
         </button>
@@ -66,14 +170,13 @@ const ProductsGrid = ({ products }: Props) => {
       <div className="products-grid">
         {sortedProducts.map((product) => {
           return (
-            <Link href={`/products/${product.id}`} key={product.id}>
+            <div key={product.id}>
               <Card
-                image={product.thumbnail}
-                name={product.title}
-                description={product.description}
+                product={product}
                 btnText={t("addToCart")}
+                handleClick={handleClick}
               />
-            </Link>
+            </div>
           );
         })}
       </div>

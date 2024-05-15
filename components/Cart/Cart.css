@@ -1,0 +1,14 @@
+.cart-container {
+  position: relative;
+}
+
+.cart {
+  color: #a30cfd;
+  font-size: 3.2rem;
+  cursor: pointer;
+}
+
+.quantity {
+  font-size: 1.6rem;
+  color: #a30cfd;
+}

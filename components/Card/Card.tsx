@@ -1,24 +1,36 @@
 import React from "react";
 import "./Card.css";
 import Image from "next/image";
+import { Product } from "../ProductsGrid/ProductsGrid";
 
 interface CardProps {
-  image: string;
-  name: string;
-  description: string;
   btnText: string;
+  handleClick: (product: Product) => void;
+  product: Product;
 }
 
-const Card: React.FC<CardProps> = ({ image, name, description, btnText }) => {
+const Card: React.FC<CardProps> = ({ btnText, handleClick, product }) => {
   return (
     <div className="card">
       <div className="featured-image">
-        <Image src={image} alt="featured" width={200} height={200} />
+        <Image
+          src={product.thumbnail}
+          alt="featured"
+          width={200}
+          height={200}
+        />
       </div>
       <div className="card-text">
-        <h2 className="product-name">{name}</h2>
-        <p className="product-description">{description}</p>
-        <button className="secondary-btn btn-buy">{btnText}</button>
+        <h2 className="product-name">{product.title}</h2>
+        <p className="product-description">{product.description}</p>
+        <button
+          className="secondary-btn btn-buy"
+          onClick={() => {
+            handleClick(product);
+          }}
+        >
+          {btnText}
+        </button>
       </div>
     </div>
   );

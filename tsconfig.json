@@ -29,7 +29,8 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "app/layout.tsx"
+    "app/layout.tsx",
+    "app/(dashboard)/checkout"
   ],
   "exclude": ["node_modules"]
 }
