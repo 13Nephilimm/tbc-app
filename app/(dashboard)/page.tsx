@@ -10,8 +10,8 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://dummyjson.com/products");
-        const { products: nestedProducts } = await response.json();
+        const response = await fetch("/api/get-products");
+        const { data: nestedProducts } = await response.json();
         setProducts(nestedProducts);
       } catch (error) {
         console.error("Error fetching products:", error);

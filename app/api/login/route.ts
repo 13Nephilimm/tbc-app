@@ -1,22 +1,44 @@
 import { cookies } from "next/headers";
+import { comparePassword, createJWT } from "../../../utils/functions";
+import { sql } from "@vercel/postgres";
+import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
-  const { username, password } = await request.json();
+  const body = await request.json();
+  const cookieStore = cookies();
 
-  const response = await fetch("https://dummyjson.com/auth/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      username,
-      password,
-    }),
-  });
+  try {
+    const data =
+      await sql`SELECT * FROM users where username = ${body.username};`;
 
-  const data = await response.json();
+    if (data.rows.length === 0) {
+      return NextResponse.json(
+        { error: "User with such credentials doesn't exist!" },
+        { status: 401 }
+      );
+    }
+    const { id, username, email, password, role } = data.rows[0];
 
-  if (response.ok) {
-    cookies().set("user", JSON.stringify(data.token));
+    const isMatch = await comparePassword(body.password, password);
+
+    if (isMatch) {
+      const jwt = await createJWT({ username, email, id, role });
+
+      cookieStore.set("token", jwt);
+      cookieStore.set("role", role);
+      return NextResponse.json(
+        { msg: "Logged in successfully!" },
+        { status: 200 }
+      );
+    }
+
+    return NextResponse.json(
+      { error: "Invalid credentials!" },
+      { status: 401 }
+    );
+  } catch (error) {
+    console.log(error);
+
+    return NextResponse.json({ error: "Bad request!" }, { status: 400 });
   }
-
-  return Response.json({ username, password });
 }

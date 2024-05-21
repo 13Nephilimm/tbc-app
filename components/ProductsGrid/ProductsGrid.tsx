@@ -48,107 +48,6 @@ const ProductsGrid: React.FC<Props> = ({ products }) => {
     };
   }, [search]);
 
-  // ADD TO CART
-  interface SelectedProduct {
-    id: number;
-    product: Product;
-    count: number;
-  }
-
-  const initialState: SelectedProduct[] = [];
-
-  type Action =
-    | { type: "INCREMENT"; payload: number }
-    | { type: "DECREMENT"; payload: number }
-    | { type: "RESET" }
-    | { type: "UPDATE"; payload: SelectedProduct[] };
-
-  function reducer(
-    state: SelectedProduct[],
-    action: Action
-  ): SelectedProduct[] {
-    switch (action.type) {
-      case "INCREMENT": {
-        const selectedProductIdx = state.findIndex(
-          (p) => p.id === action.payload
-        );
-        if (selectedProductIdx === -1) {
-          return [
-            ...state,
-            {
-              id: action.payload,
-              product: products.find((p) => p.id === action.payload)!,
-              count: 1,
-            },
-          ];
-        }
-        const clone = [...state];
-        const selectedProduct = clone[selectedProductIdx];
-        const updatedSelectedProduct = {
-          ...selectedProduct,
-          count: selectedProduct.count + 1,
-        };
-        clone[selectedProductIdx] = updatedSelectedProduct;
-        return clone;
-      }
-      case "DECREMENT": {
-        const selectedProductIdx = state.findIndex(
-          (p) => p.id === action.payload
-        );
-        if (selectedProductIdx === -1) {
-          return state;
-        }
-        const clone = [...state];
-        const selectedProduct = clone[selectedProductIdx];
-        if (selectedProduct.count === 1) {
-          clone.splice(selectedProductIdx, 1);
-        } else {
-          const updatedSelectedProduct = {
-            ...selectedProduct,
-            count: selectedProduct.count - 1,
-          };
-          clone[selectedProductIdx] = updatedSelectedProduct;
-        }
-        return clone;
-      }
-      case "RESET":
-        return initialState;
-      case "UPDATE":
-        return action.payload;
-      default:
-        return state;
-    }
-  }
-
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  const [value, setCachedValue] = useLocalStorage(
-    "selectedProducts",
-    initialState
-  );
-  const [selectedProducts, dispatch] = useReducer<
-    React.Reducer<SelectedProduct[], Action>
-  >(reducer, value);
-
-  useEffect(() => {
-    setCachedValue(selectedProducts);
-  }, [selectedProducts, setCachedValue]);
-
-  const handleClick = (product: Product) => {
-    dispatch({ type: "INCREMENT", payload: product.id });
-  };
-
-  const selectedNumber = selectedProducts.reduce(
-    (acc: number, curr: SelectedProduct) => {
-      return acc + curr.count;
-    },
-    0
-  );
-
   return (
     <>
       <div className="search-section">
@@ -162,7 +61,7 @@ const ProductsGrid: React.FC<Props> = ({ products }) => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <Cart selectedNumber={selectedNumber} isClient={isClient} />
+        <Cart />
         <button className="secondary-btn sort-btn" onClick={toggleSort}>
           {t("sort")}
         </button>
@@ -171,11 +70,7 @@ const ProductsGrid: React.FC<Props> = ({ products }) => {
         {sortedProducts.map((product) => {
           return (
             <div key={product.id}>
-              <Card
-                product={product}
-                btnText={t("addToCart")}
-                handleClick={handleClick}
-              />
+              <Card product={product} btnText={t("addToCart")} />
             </div>
           );
         })}

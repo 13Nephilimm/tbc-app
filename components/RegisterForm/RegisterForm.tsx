@@ -1,13 +1,16 @@
 "use client";
 import React, { useState } from "react";
-import "./LoginForm.css";
+import "./RegisterForm.css";
 import { FaUserTie } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useRouter } from "next/navigation";
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  //   const [role, setRole] = useState<string>("");
+  const role = "admin";
   const router = useRouter();
 
   return (
@@ -15,9 +18,9 @@ const LoginForm = () => {
       className="login-form"
       onSubmit={(e) => {
         e.preventDefault();
-        fetch("/api/login", {
+        fetch("/api/register", {
           method: "POST",
-          body: JSON.stringify({ username: name, password }),
+          body: JSON.stringify({ username: name, email, password, role }),
         }).then(() => {
           router.push("/");
         });
@@ -38,6 +41,20 @@ const LoginForm = () => {
         required
       />
       <label>
+        <FaUserTie className="login-icon" />
+        Email
+      </label>
+      <input
+        placeholder="Type your username"
+        type="text"
+        name="username"
+        value={email}
+        onChange={(e) => {
+          setEmail(e.target.value);
+        }}
+        required
+      />
+      <label>
         <RiLockPasswordFill className="login-icon" />
         Password
       </label>
@@ -51,6 +68,7 @@ const LoginForm = () => {
         }}
         required
       />
+
       <button className="btn-login" type="submit">
         Login
       </button>
@@ -58,4 +76,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

@@ -2,14 +2,23 @@ import React from "react";
 import "./Card.css";
 import Image from "next/image";
 import { Product } from "../ProductsGrid/ProductsGrid";
+import { setCartTotalCookie } from "../../utils/actions";
 
 interface CardProps {
   btnText: string;
-  handleClick: (product: Product) => void;
   product: Product;
 }
 
-const Card: React.FC<CardProps> = ({ btnText, handleClick, product }) => {
+const Card: React.FC<CardProps> = ({ btnText, product }) => {
+  const addProduct = async () => {
+    const response = await fetch("/api/cart", {
+      method: "POST",
+      body: JSON.stringify({ product_id: product.id }),
+    });
+    const data = await response.json();
+    await setCartTotalCookie(data.quantity);
+  };
+
   return (
     <div className="card">
       <div className="featured-image">
@@ -26,7 +35,7 @@ const Card: React.FC<CardProps> = ({ btnText, handleClick, product }) => {
         <button
           className="secondary-btn btn-buy"
           onClick={() => {
-            handleClick(product);
+            addProduct();
           }}
         >
           {btnText}

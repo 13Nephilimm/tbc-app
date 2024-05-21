@@ -1,18 +1,34 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export function middleware(request: NextRequest) {
-  const cookieStore = request.cookies.get("user");
-  const { pathname } = request.nextUrl;
+export default function middleware(request: NextRequest) {
+  let token = request.cookies.get("token");
+  let language = request.cookies.get("language");
 
-  if (!cookieStore?.value && !pathname.startsWith("/login")) {
+  if (
+    request.nextUrl.pathname === "/api/register" ||
+    request.nextUrl.pathname === "/api/login" ||
+    request.nextUrl.pathname === "/api/get-products" ||
+    request.nextUrl.pathname === "/api/cart"
+    // request.nextUrl.pathname === "/api/auth/users" ||
+    // request.nextUrl.pathname === "/api/product"
+  ) {
+    return NextResponse.next();
+  }
+
+  if (token && request.nextUrl.pathname === "/login") {
+    return NextResponse.redirect(new URL("/", request.url));
+  }
+  if (!token && request.nextUrl.pathname !== "/login") {
     return NextResponse.redirect(new URL("/login", request.url));
   }
-  if (cookieStore?.value && pathname.startsWith("/login")) {
-    return NextResponse.redirect(new URL("/", request.url));
+  if (request.nextUrl.pathname !== "/login" && !language) {
+    const response = NextResponse.next();
+    response.cookies.set("language", "en");
+    return response;
   }
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|images|favicon.ico).*)"],
+  matcher: ["/((?!_next|favicon.ico).*)"],
 };
