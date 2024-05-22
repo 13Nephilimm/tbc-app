@@ -5,7 +5,6 @@ import Card from "../Card/Card";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import Cart from "../Cart/Cart";
-import { useLocalStorage } from "../../hooks";
 
 export interface Product {
   id: number;

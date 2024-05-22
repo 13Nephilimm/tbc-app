@@ -4,6 +4,8 @@ import { FaShoppingCart } from "react-icons/fa";
 import Link from "next/link";
 import { getCartTotalCookie } from "../../utils/actions";
 
+export const revalidate = 0;
+
 const Cart = () => {
   const [itemQuantity, setItemQuantity] = useState(0);
 

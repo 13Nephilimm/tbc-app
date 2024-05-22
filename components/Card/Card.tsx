@@ -3,6 +3,7 @@ import "./Card.css";
 import Image from "next/image";
 import { Product } from "../ProductsGrid/ProductsGrid";
 import { setCartTotalCookie } from "../../utils/actions";
+import { useLocalStorage } from "../../hooks";
 
 interface CardProps {
   btnText: string;
@@ -10,6 +11,8 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ btnText, product }) => {
+  const [_, setCartStorage] = useLocalStorage("cartStorage", 0);
+
   const addProduct = async () => {
     const response = await fetch("/api/cart", {
       method: "POST",
@@ -17,6 +20,7 @@ const Card: React.FC<CardProps> = ({ btnText, product }) => {
     });
     const data = await response.json();
     await setCartTotalCookie(data.quantity);
+    setCartStorage(data.quantity);
   };
 
   return (

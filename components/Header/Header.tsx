@@ -6,6 +6,7 @@ import "./Header.css";
 import { useTranslation } from "react-i18next";
 import { handleLogout } from "../../scripts/logout";
 import i18n from "../../app/i18n";
+import Cart from "../Cart/Cart";
 
 const Header: React.FC = () => {
   // TRANSLATE
@@ -17,7 +18,7 @@ const Header: React.FC = () => {
     i18n.changeLanguage(nextLanguage);
   };
 
-  // THEME
+  //THEME
   const [theme, setTheme] = useState<string>("light");
 
   const toggleTheme = () => {

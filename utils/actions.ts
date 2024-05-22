@@ -13,3 +13,10 @@ export const getCartTotalCookie = async () => {
 
   return items;
 };
+
+export const getToken = async () => {
+  const cookieStore = cookies();
+  const token = cookieStore.get("token");
+
+  return token;
+};
