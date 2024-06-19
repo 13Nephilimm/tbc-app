@@ -1,63 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Jaini&display=swap");
+
 header {
-  background-color: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(15px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.6rem 2.4rem;
+  width: 30rem;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: rgba(47, 47, 47, 0.7);
+  border-radius: 0 2rem 2rem 0;
+  backdrop-filter: blur(8px);
+  box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.7);
   z-index: 99;
 }
 
-nav {
+nav ul {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2.4rem 0;
+  flex-direction: column;
+  align-items: start;
+  gap: 3.6rem;
 }
 
-.links-box {
+.nav-link {
+  font-size: 2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #000;
+  letter-spacing: 2px;
+  transition: all 0.5s;
   display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+.nav-link b {
+  color: #f99136;
+  font-weight: 500;
+  transition: all 0.5s;
+  font-size: 2rem;
+}
+
+.nav-link:hover {
+  color: #f99136;
+}
+
+.nav-icon {
+  margin-left: 8px;
+  font-size: 2.4rem;
+}
+
+.nav-link:hover.nav-icon {
+  color: #f99136;
+}
+
+.upper-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 9.6rem;
+}
+
+.nav-btn-box {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 6.4rem;
-  font-weight: 400;
-}
-
-.link {
-  font-size: 1.6rem;
-  color: #ffffff;
-}
-
-.link:hover {
-  color: #a30cfd;
-  text-shadow: 0px 0px 20px rgba(163, 12, 253, 0.5);
-}
-
-.secondary-btn {
-  font-size: 1.6rem;
-  padding: 1rem 3.6rem;
-  border-radius: 6.4rem;
-  border: 2px solid #a30cfd;
-  color: #ffffff;
-  background-color: transparent;
-}
-
-.secondary-btn:hover {
-  background-color: #a30cfd;
-  box-shadow: 0px 0px 15px 5px rgba(163, 12, 253, 0.3);
-  cursor: pointer;
+  gap: 8px;
 }
 
 .logo {
-  font-family: "Codystar", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 24px;
-  color: #a30cfd;
-}
-
-.translate-btn {
-  background-color: transparent;
-  cursor: pointer;
+  font-size: 4.8rem;
+  color: #f99136;
   text-transform: uppercase;
+  font-family: "Jaini", system-ui;
 }
 
-.theme-toggle-btn {
+/**********************/
+/* LIGHT / DARK MODE */
+/**********************/
+.toggle-mode {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-mode p {
+  color: #000;
+  font-weight: 500;
   font-size: 1.6rem;
+}
+
+.switch {
+  font-size: 1.7rem;
+  position: relative;
+  display: inline-block;
+  width: 6.5rem;
+  height: 4rem;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  transition: 0.4s;
+  border-radius: 3rem;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 2.8rem;
+  width: 2.8rem;
+  border-radius: 2rem;
+  left: 0.5rem;
+  bottom: 0.5rem;
+  background-color: #f99136;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #000000;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #000000;
+}
+
+input:checked + .slider:before {
+  transform: translateX(2.5rem);
+}
+
+input:checked + .slider::after {
+  width: 2.5rem;
+  height: 2.5rem;
+  left: 44%;
+  top: 17%;
+  border-radius: 50%;
+  position: absolute;
+  content: "";
+  background-color: rgb(0, 0, 0);
+  transition: ease 0.4s;
+}
+
+/*********************/
+/* LANGUAGE SWITCHER */
+/*********************/
+.nav-btn,
+.main-btn {
+  border: #000 2px dashed;
+  padding: 8px 16px;
+  color: #f99136;
+  background-color: transparent;
+  text-transform: uppercase;
+  transition: all 0.5s;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.nav-btn:hover,
+.main-btn:hover {
+  border: #f99136 2px dashed;
+  background-color: #000;
 }

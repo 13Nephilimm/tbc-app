@@ -31,6 +31,8 @@ const CheckoutPage: React.FC = () => {
     });
   }, []);
 
+  console.log(cartItem); // AQEDAN MOMAQVS YVELA INFO PRODUCTIS
+
   function deleteCartItem(id: number) {
     setCartItem([
       ...cartItem.filter((item: { id: number }) => {

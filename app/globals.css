@@ -20,8 +20,7 @@ li {
   list-style: none;
 }
 
-.container,
-nav {
+.container {
   max-width: 138rem;
   margin: 0 auto;
 }
@@ -37,12 +36,14 @@ html {
 }
 
 [data-theme="dark"] {
-  background-color: #1a1d1e;
+  background-color: #262525;
 }
 
 /* Light mode */
 [data-theme="light"] {
-  background-color: #1a1d1e75;
+  html {
+    background: linear-gradient(145deg, #958f89 0%, #a69f98 50%, #afa9a2 100%);
+  }
   header,
   footer {
     background-color: #1a1d1e;

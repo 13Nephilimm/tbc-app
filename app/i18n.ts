@@ -10,6 +10,18 @@ const resources = {
       blog: "Blog",
       profile: "Profile",
       logOut: "Log Out",
+      h: "H",
+      ome: "ome",
+      g: "G",
+      ames: "ames",
+      c: "C",
+      ontact: "ontact",
+      p: "P",
+      rofile: "rofile",
+      a: "A",
+      dmin: "dmin",
+      b: "B",
+      log: "log",
 
       // FOOTER
       privacyPolicy: "Privacy Policy",
@@ -31,9 +43,6 @@ const resources = {
       callMe: "Call Us",
       fullName: "Your Full Name",
 
-      // BLOG PAGE
-      seeMore: "See More",
-
       // PROFILE PAGE
       myProfile: "My Profile",
       name: "Name",
@@ -41,6 +50,14 @@ const resources = {
       newPassword: "New Password",
       confirmNewPassword: "Confirm New Password",
       save: "Save",
+
+      // HOME PAGE
+      your: "Your",
+      gateway: "Gateway",
+      toThe: "to the",
+      gaming: "Gaming",
+      paradise: "Paradise",
+      seeMore: "See More",
     },
   },
 
@@ -52,6 +69,18 @@ const resources = {
       blog: "ბლოგი",
       profile: "პროფილი",
       logOut: "გასვლა",
+      h: "მ",
+      ome: "თავარი",
+      g: "პ",
+      ames: "როდუქტები",
+      c: "კ",
+      ontact: "ონტაქტი",
+      p: "პ",
+      rofile: "როფილი",
+      a: "ა",
+      dmin: "დმინი",
+      b: "ბ",
+      log: "ლოგი",
 
       // FOOTER
       privacyPolicy: "კონფიდენციალურობის პოლიტიკა",
@@ -73,9 +102,6 @@ const resources = {
       callMe: "დაგვირეკეთ",
       fullName: "სრული სახელი",
 
-      // BLOG PAGE
-      seeMore: "სრულად",
-
       // PROFILE PAGE
       myProfile: "ჩემი პროფილი",
       name: "სახელი",
@@ -83,6 +109,14 @@ const resources = {
       newPassword: "ახალი პაროლი",
       confirmNewPassword: "გაიმეორეთ ახალი პაროლი",
       save: "შენახვა",
+
+      // HOME PAGE
+      your: "შენი",
+      gateway: "კარიბჭე",
+      toThe: "",
+      gaming: "გეიმინგ",
+      paradise: "სამოთხეში",
+      seeMore: "იხილეთ მეტი",
     },
   },
 };

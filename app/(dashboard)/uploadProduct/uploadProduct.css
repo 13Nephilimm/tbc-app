@@ -1,0 +1,15 @@
+.upload input,
+.upload label,
+.upload button {
+  font-size: 1.6rem;
+  color: #fff;
+  background-color: #888;
+  padding: 1.2rem;
+}
+
+.upload {
+  padding: 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}

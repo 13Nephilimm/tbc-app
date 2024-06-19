@@ -1,10 +1,4 @@
 .layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-main {
-  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 10fr;
 }

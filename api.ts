@@ -1,11 +1,6 @@
-export interface User {
-  id: number;
-  name: string;
-  email: string;
-  age: number;
-}
+"use server";
 
-export const BASE_URL = `http://localhost:3000`;
+import { BASE_URL, User } from "./utils/functions";
 
 export async function getUsers() {
   const response = await fetch(BASE_URL + "/api/get-users");

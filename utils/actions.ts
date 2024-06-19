@@ -1,5 +1,6 @@
 "use server";
 
+import { sql } from "@vercel/postgres";
 import { cookies } from "next/headers";
 
 export const setCartTotalCookie = async (total: number) => {
@@ -19,4 +20,14 @@ export const getToken = async () => {
   const token = cookieStore.get("token");
 
   return token;
+};
+
+export const getAllProducts = async () => {
+  const products = await sql`SELECT * FROM products`;
+  return products.rows;
+};
+
+export const getSingleProduct = async (id: string) => {
+  const product = await sql`SELECT * FROM products WHERE id = ${id}`;
+  return product.rows[0];
 };

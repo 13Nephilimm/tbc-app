@@ -11,7 +11,7 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ btnText, product }) => {
-  const [_, setCartStorage] = useLocalStorage("cartStorage", 0);
+  const [_, setCartStorage] = useLocalStorage("cartTotal", "0");
 
   const addProduct = async () => {
     const response = await fetch("/api/cart", {

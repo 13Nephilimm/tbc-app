@@ -1,6 +1,7 @@
 import Image from "next/image";
 import "./single-product.css";
 import Layout from "../../../../components/Layout/Layout";
+import { getAllProducts, getSingleProduct } from "../../../../utils/actions";
 
 interface Product {
   id: number;
@@ -21,14 +22,12 @@ interface StaticParams {
 }
 
 export async function generateStaticParams(): Promise<StaticParams[]> {
-  const res = await fetch(`https://dummyjson.com/products`);
-  const data = await res.json();
-  return data.products.map((item: Product) => ({ id: String(item.id) }));
+  const data: Product[] = (await getAllProducts()) as Product[];
+  return data.map((item: Product) => ({ id: String(item.id) }));
 }
 
 async function fetchProduct(id: string): Promise<Product> {
-  const res = await fetch(`https://dummyjson.com/products/${id}`);
-  const product = await res.json();
+  const product: Product = (await getSingleProduct(id)) as Product;
   return product;
 }
 

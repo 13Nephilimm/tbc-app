@@ -11,6 +11,7 @@
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
     "@types/bcrypt": "^5.0.2",
+    "@vercel/blob": "^0.23.3",
     "@vercel/postgres": "^0.8.0",
     "bcrypt": "^5.1.1",
     "i18next": "^23.11.2",

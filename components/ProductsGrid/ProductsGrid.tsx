@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ProductsGrid.css";
 import { MdSearch } from "react-icons/md";
 import Card from "../Card/Card";
@@ -69,7 +69,9 @@ const ProductsGrid: React.FC<Props> = ({ products }) => {
         {sortedProducts.map((product) => {
           return (
             <div key={product.id}>
-              <Card product={product} btnText={t("addToCart")} />
+              <Link href={`/products/${product.id}`}>
+                <Card product={product} btnText={t("addToCart")} />
+              </Link>
             </div>
           );
         })}

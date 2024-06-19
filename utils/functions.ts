@@ -1,6 +1,15 @@
 import * as jose from "jose";
 import * as bcrypt from "bcrypt";
 
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+  age: number;
+}
+
+export const BASE_URL = `http://localhost:3000`;
+
 export const createJWT = async (user: {
   username: string;
   email: string;
