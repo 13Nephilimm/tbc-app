@@ -1,5 +1,10 @@
 .contact {
   padding: 4.8rem 1.6rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .container.contact-container {
@@ -12,22 +17,30 @@
 .contact-options {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 2.4rem;
 }
 
 .contact-option {
-  background-color: #a30cfd;
+  background-color: transparent;
+  border: #f99136 2px solid;
   border-radius: 1.2rem;
   padding: 8px;
   text-align: center;
-  border: 1px solid transparent;
   transition: all 0.3s;
+  text-transform: uppercase;
 }
 
 .contact-option:hover {
-  background-color: transparent;
-  border-color: #a30cfd;
-  box-shadow: 0px 0px 15px 5px rgba(163, 12, 253, 0.3);
+  background-color: #f99136;
+  border-color: transparent;
+  box-shadow: 0px 0px 15px 5px #f9913682;
+}
+
+.contact-option:hover .contact-option-icon,
+.contact-option:hover.contact-option h4,
+.contact-option:hover.contact-option h5,
+.contact-option:hover.contact-option a {
+  color: #000;
 }
 
 .contact-option-icon {
@@ -64,7 +77,8 @@ textarea {
   padding: 1.5rem;
   border-radius: 1.6rem;
   background-color: transparent;
-  border: 2px solid #a30cfd;
+  border: 2px solid #f99136;
+  font-size: 1.6rem;
   resize: none;
   color: #fff;
 }

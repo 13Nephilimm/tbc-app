@@ -94,7 +94,7 @@ const Contact: React.FC = () => {
               placeholder={t("leaveMessage")}
               required
             ></textarea>
-            <button className="secondary-btn" type="submit">
+            <button className="main-btn" type="submit">
               {t("sendMessage")}
             </button>
           </form>

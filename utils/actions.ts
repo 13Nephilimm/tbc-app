@@ -23,11 +23,11 @@ export const getToken = async () => {
 };
 
 export const getAllProducts = async () => {
-  const products = await sql`SELECT * FROM products`;
+  const products = await sql`SELECT * FROM games`;
   return products.rows;
 };
 
 export const getSingleProduct = async (id: string) => {
-  const product = await sql`SELECT * FROM products WHERE id = ${id}`;
+  const product = await sql`SELECT * FROM games WHERE id = ${id}`;
   return product.rows[0];
 };

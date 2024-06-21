@@ -68,7 +68,7 @@ const CheckoutPage: React.FC = () => {
           Reset Cart
         </button>
 
-        {cartItem.map((product: any) => (
+        {cartItem?.map((product: any) => (
           <CartItem
             key={product.id}
             product={product}

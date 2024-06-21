@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export const POST = async (req: NextRequest) => {
   const product = await req.json();
 
-  await sql`INSERT INTO products (title, description, price, release_year, category, rating, thumbnail, images)
+  await sql`INSERT INTO games (title, description, price, release_year, category, rating, thumbnail, images)
   VALUES 
       (${product.title}, ${product.description}, ${product.price}, ${
     product.release_year

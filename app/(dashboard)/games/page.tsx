@@ -10,7 +10,10 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/get-products");
+        const response = await fetch("/api/get-products", {
+          method: "GET",
+          cache: "no-cache",
+        });
         const { data: nestedProducts } = await response.json();
         setProducts(nestedProducts);
       } catch (error) {

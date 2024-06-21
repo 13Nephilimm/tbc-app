@@ -45,6 +45,7 @@ nav ul {
 
 .nav-link:hover {
   color: #f99136;
+  cursor: pointer;
 }
 
 .nav-icon {

@@ -12,7 +12,7 @@ import { TbDeviceGamepad2 } from "react-icons/tb";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoMdContact } from "react-icons/io";
 import { IoIosLock } from "react-icons/io";
-import { getCartTotalCookie } from "../../utils/actions";
+import { BsCart } from "react-icons/bs";
 
 const Header: React.FC = () => {
   // TRANSLATE
@@ -91,11 +91,16 @@ const Header: React.FC = () => {
                 <IoIosLock className="nav-icon" />
               </Link>
             </li>
+            <li className="nav-link">
+              <Link href="/checkout" className="nav-link">
+                <b>C</b>art
+                <BsCart className="nav-icon" />
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
       <div className="nav-btn-box">
-        <Cart />
         <button className="nav-btn" onClick={toggleLanguage}>
           {translation.language === "en" ? "GEO" : "ENG"}
         </button>

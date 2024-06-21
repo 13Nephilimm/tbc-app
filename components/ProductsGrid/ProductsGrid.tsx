@@ -4,7 +4,6 @@ import { MdSearch } from "react-icons/md";
 import Card from "../Card/Card";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import Cart from "../Cart/Cart";
 
 export interface Product {
   id: number;
@@ -60,7 +59,6 @@ const ProductsGrid: React.FC<Props> = ({ products }) => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <Cart />
         <button className="secondary-btn sort-btn" onClick={toggleSort}>
           {t("sort")}
         </button>

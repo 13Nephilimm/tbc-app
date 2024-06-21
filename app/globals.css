@@ -42,7 +42,12 @@ html {
 /* Light mode */
 [data-theme="light"] {
   html {
-    background: linear-gradient(145deg, #958f89 0%, #a69f98 50%, #afa9a2 100%);
+    background-color: linear-gradient(
+      145deg,
+      #958f89 0%,
+      #a69f98 50%,
+      #afa9a2 100%
+    );
   }
   header,
   footer {

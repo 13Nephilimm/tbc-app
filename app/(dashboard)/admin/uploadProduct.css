@@ -1,0 +1,48 @@
+.admin-page-heading {
+  font-size: 4.4rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 9.6rem 2.4rem 0 2.4rem;
+  text-transform: uppercase;
+  color: #000;
+  letter-spacing: 2px;
+  word-spacing: 8px;
+}
+
+.admin-page-heading span {
+  font-size: 4.8rem;
+  font-weight: 700;
+  color: #f99136;
+}
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  max-width: 80rem;
+  margin: 4.8rem auto;
+  padding: 8rem;
+  margin-top: 4.8rem;
+  border-radius: 2.4rem;
+  box-shadow: 4px 4px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.upload-label {
+  font-size: 1.8rem;
+  margin-top: 1.2rem;
+  margin-left: 2px;
+  text-transform: uppercase;
+  color: #f99136;
+}
+
+.upload-input {
+  font-size: 1.6rem;
+  background-color: transparent;
+  border: 2px solid #f99136;
+  padding: 8px;
+  border-radius: 1.6rem;
+  color: #f99136;
+}
+
+.upload-btn {
+  margin-top: 2.4rem;
+}
