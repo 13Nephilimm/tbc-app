@@ -6,11 +6,21 @@
 }
 
 .profile-container {
+  max-width: 80rem;
+  margin: 8rem auto;
   display: flex;
   justify-content: center;
   gap: 9.6rem;
   align-items: center;
-  padding: 6.4rem;
+  padding: 4.8rem;
+  background-color: rgba(47, 47, 47, 0.7);
+  box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.7);
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem;
 }
 
 .input-box {
@@ -22,10 +32,11 @@
 .profile-name,
 .profile-lastname,
 .profile-email {
-  color: #a30cfd;
+  color: #f99136;
   font-size: 2.4rem;
-  font-weight: 400;
-  padding: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 1.2rem;
 }
 
 .profile-name b,
@@ -33,16 +44,19 @@
 .profile-email b {
   color: #fff;
   font-weight: 700;
-  margin-right: 1.6rem;
 }
 
 .profile-password {
-  margin-top: 1.6rem;
+  margin-top: 1.2rem;
   border-radius: 1.6rem;
   padding: 1.2rem 1.6rem;
   background-color: transparent;
-  border: 1px solid #a30cfd;
+  border: 2px dashed #f99136;
   color: #fff;
+}
+
+.profile-password::placeholder {
+  color: #000;
 }
 
 .btn-password-save {
@@ -51,4 +65,11 @@
 
 .profile-info input {
   font-size: 1.6rem;
+}
+
+.profile-image {
+  max-width: 25rem;
+  max-height: 25rem;
+  border-radius: 50%;
+  border: dashed 2px #f99136;
 }

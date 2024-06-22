@@ -11,7 +11,7 @@ interface Blog {
   id: number;
   title: string;
   body: string;
-  date: string;
+  image: string;
 }
 
 const Blog = () => {
@@ -22,8 +22,8 @@ const Blog = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://dummyjson.com/posts");
-        const { posts: nestedBlogs }: { posts: Blog[] } = await response.json();
+        const response = await fetch("/api/all-blogs");
+        const { data: nestedBlogs }: { data: Blog[] } = await response.json();
         setBlogs(nestedBlogs);
       } catch (error) {
         console.error("Error fetching blogs:", error);
@@ -35,16 +35,15 @@ const Blog = () => {
 
   return (
     <Layout>
-      <h1 className="main-heading">{t("blog")}</h1>
+      <h1 className="blog-main-heading">
+        <b>{t("b")}</b>
+        {t("log")}
+      </h1>
       <div className="blog-container">
         {blogs.map((blog) => {
           return (
             <Link href={`/blog/${blog.id}`} key={blog.id}>
-              <BlogCard
-                name={blog.title}
-                description={blog.body}
-                date={blog.date}
-              />
+              <BlogCard name={blog.title} image={blog.image} />
             </Link>
           );
         })}

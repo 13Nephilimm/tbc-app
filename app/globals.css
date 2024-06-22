@@ -36,21 +36,15 @@ html {
 }
 
 [data-theme="dark"] {
-  background-color: #262525;
+  background: linear-gradient(145deg, #746f6a 0%, #857f7a 50%, #a69f98 100%);
 }
 
 /* Light mode */
 [data-theme="light"] {
-  html {
-    background-color: linear-gradient(
-      145deg,
-      #958f89 0%,
-      #a69f98 50%,
-      #afa9a2 100%
-    );
-  }
+  background-color: #262525 !important;
+
   header,
   footer {
-    background-color: #1a1d1e;
+    background-color: #262525;
   }
 }

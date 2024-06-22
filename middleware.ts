@@ -18,7 +18,11 @@ export default function middleware(request: NextRequest) {
     request.nextUrl.pathname === "/api/all-products" ||
     request.nextUrl.pathname === "/api/profile-image" ||
     request.nextUrl.pathname === "/api/update-profile" ||
-    request.nextUrl.pathname === "/api/profile-info"
+    request.nextUrl.pathname === "/api/profile-info" ||
+    request.nextUrl.pathname === "/api/post-image-upload" ||
+    request.nextUrl.pathname === "/api/blog-upload" ||
+    request.nextUrl.pathname === "/api/all-blogs" ||
+    request.nextUrl.pathname === "/api/get-single-blog"
     // request.nextUrl.pathname === "/api/auth/users" ||
     // request.nextUrl.pathname === "/api/product"
   ) {

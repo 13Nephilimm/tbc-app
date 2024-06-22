@@ -9,7 +9,7 @@
   word-spacing: 8px;
 }
 
-.admin-page-heading span {
+.admin-page-heading b {
   font-size: 4.8rem;
   font-weight: 700;
   color: #f99136;

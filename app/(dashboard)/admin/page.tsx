@@ -4,6 +4,7 @@ import React, { ChangeEvent, FormEvent, useRef, useState } from "react";
 import "./uploadProduct.css";
 import Image from "next/image";
 import Layout from "../../../components/Layout/Layout";
+import { useTranslation } from "react-i18next";
 
 const UploadPage = () => {
   const [product, setProduct] = useState<any>({
@@ -111,13 +112,16 @@ const UploadPage = () => {
     }
   };
 
+  const { t } = useTranslation();
+
   return (
     <Layout>
       <h1 className="admin-page-heading">
-        <span>A</span>dd <span>N</span>ew <span>G</span>ame
+        <b>{t("n")}</b>
+        {t("ewProduct")}
       </h1>
       <form className="upload" onSubmit={handleSubmit}>
-        <label className="upload-label">Game Name</label>
+        <label className="upload-label">{t("gameName")}</label>
         <input
           onChange={handleChange}
           className="upload-input"
@@ -127,7 +131,7 @@ const UploadPage = () => {
           data-type="title"
           value={product.title}
         />
-        <label className="upload-label">Description</label>
+        <label className="upload-label">{t("description")}</label>
         <input
           onChange={handleChange}
           className="upload-input"
@@ -137,7 +141,7 @@ const UploadPage = () => {
           data-type="description"
           value={product.description}
         />
-        <label className="upload-label">Price</label>
+        <label className="upload-label">{t("price")}</label>
         <input
           onChange={handleChange}
           className="upload-input"
@@ -147,7 +151,7 @@ const UploadPage = () => {
           data-type="price"
           value={product.price}
         />
-        <label className="upload-label">Release Year</label>
+        <label className="upload-label">{t("releaseYear")}</label>
         <input
           onChange={handleChange}
           className="upload-input"
@@ -157,7 +161,7 @@ const UploadPage = () => {
           data-type="release_year"
           value={product.release_year}
         />
-        <label className="upload-label">Genre</label>
+        <label className="upload-label">{t("genre")}</label>
         <input
           onChange={handleChange}
           className="upload-input"
@@ -167,7 +171,7 @@ const UploadPage = () => {
           data-type="category"
           value={product.category}
         />
-        <label className="upload-label">Review</label>
+        <label className="upload-label">{t("review")}</label>
         <input
           onChange={handleChange}
           className="upload-input"
@@ -177,7 +181,7 @@ const UploadPage = () => {
           data-type="rating"
           value={product.rating}
         />
-        <label className="upload-label">Thumbnail</label>
+        <label className="upload-label">{t("thumbnail")}</label>
         <input
           onChange={handleImageChange}
           className="upload-input"
@@ -191,7 +195,7 @@ const UploadPage = () => {
         {product.thumbnail && (
           <Image src={product.thumbnail} width={100} height={100} alt="image" />
         )}
-        <label className="upload-label">Images</label>
+        <label className="upload-label">{t("images")}</label>
         <input
           onChange={handleImageChange}
           className="upload-input"
@@ -215,7 +219,7 @@ const UploadPage = () => {
           className="main-btn upload-btn"
           onSubmit={handleSubmit}
         >
-          Upload Product
+          {t("upload")}
         </button>
       </form>
     </Layout>

@@ -6,13 +6,14 @@ import "./Header.css";
 import { useTranslation } from "react-i18next";
 import { handleLogout } from "../../scripts/logout";
 import i18n from "../../app/i18n";
-import Cart from "../Cart/Cart";
 import { IoHomeOutline } from "react-icons/io5";
 import { TbDeviceGamepad2 } from "react-icons/tb";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoMdContact } from "react-icons/io";
 import { IoIosLock } from "react-icons/io";
 import { BsCart } from "react-icons/bs";
+import { TbNewSection } from "react-icons/tb";
+import { MdNewspaper } from "react-icons/md";
 
 const Header: React.FC = () => {
   // TRANSLATE
@@ -78,23 +79,38 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li>
+              <Link href="/blog" className="nav-link">
+                <b>{t("b")}</b>
+                {t("log")}
+                <MdNewspaper className="nav-icon" />
+              </Link>
+            </li>
+            <li>
               <Link href="/profile" className="nav-link">
                 <b>{t("p")}</b>
                 {t("rofile")}
                 <IoMdContact className="nav-icon" />
               </Link>
             </li>
-            <li>
-              <Link href="/admin" className="nav-link">
-                <b>{t("a")}</b>
-                {t("dmin")}
-                <IoIosLock className="nav-icon" />
-              </Link>
-            </li>
             <li className="nav-link">
               <Link href="/checkout" className="nav-link">
-                <b>C</b>art
+                <b>{t("c")}</b>
+                {t("art")}
                 <BsCart className="nav-icon" />
+              </Link>
+            </li>
+            <li>
+              <Link href="/admin" className="nav-link">
+                <b>{t("n")}</b>
+                {t("ewProduct")}
+                <TbNewSection className="nav-icon" />
+              </Link>
+            </li>
+            <li>
+              <Link href="/new-post" className="nav-link">
+                <b>{t("n")}</b>
+                {t("ewPost")}
+                <TbNewSection className="nav-icon" />
               </Link>
             </li>
           </ul>
@@ -126,44 +142,6 @@ const Header: React.FC = () => {
         </button>
       </div>
     </header>
-    // <header>
-    //   <nav>
-    //     <div className="logo-box">
-    //       <h1 className="logo">PurpleStore</h1>
-    //     </div>
-    //     <div className="links-box">
-    //       <Link href="/" className="link">
-    //         {t("home")}
-    //       </Link>
-    //       <Link href="/contact" className="link">
-    //         {t("contact")}
-    //       </Link>
-    //       <Link href="/blog" className="link">
-    //         {t("blog")}
-    //       </Link>
-    //       <Link href="/profile" className="link">
-    //         {t("profile")}
-    //       </Link>
-    //       <button onClick={toggleLanguage} className="link translate-btn">
-    //         {translation.language === "en" ? "Geo" : "Eng"}
-    //       </button>
-    //     </div>
-    //     <button
-    //       className="theme-toggle-btn secondary-btn"
-    //       onClick={toggleTheme}
-    //     >
-    //       {theme === "light" ? "Dark" : "Light"} Mode
-    //     </button>
-    //     <button
-    //       className="secondary-btn"
-    //       onClick={() => {
-    //         handleLogout().then(() => window.location.reload());
-    //       }}
-    //     >
-    //       {t("logOut")}
-    //     </button>
-    //   </nav>
-    // </header>
   );
 };
 

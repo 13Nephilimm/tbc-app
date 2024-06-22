@@ -7,6 +7,19 @@
   justify-content: center;
 }
 
+.contact-heading {
+  text-align: center;
+  font-size: 4.4rem;
+  color: #000;
+  text-transform: uppercase;
+  padding: 6.4rem;
+}
+
+.contact-heading b {
+  color: #f99136;
+  font-size: 4.8rem;
+}
+
 .container.contact-container {
   width: 58%;
   display: grid;
@@ -22,7 +35,7 @@
 
 .contact-option {
   background-color: transparent;
-  border: #f99136 2px solid;
+  border: #f99136 2px dashed;
   border-radius: 1.2rem;
   padding: 8px;
   text-align: center;
@@ -46,19 +59,19 @@
 .contact-option-icon {
   font-size: 3.6rem;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: #000;
 }
 
 .contact-option a {
   margin-top: 0.7rem;
   display: inline-block;
   font-size: 2rem;
-  color: #fff;
+  color: #000;
 }
 
 .contact-option h5,
 .contact-option h4 {
-  color: #fff;
+  color: #000;
   padding: 8px 0;
   font-size: 1.6rem;
 }
@@ -80,6 +93,11 @@ textarea {
   border: 2px solid #f99136;
   font-size: 1.6rem;
   resize: none;
+  color: #fff;
+}
+
+input::placeholder,
+textarea::placeholder {
   color: #fff;
 }
 

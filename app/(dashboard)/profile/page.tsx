@@ -103,7 +103,7 @@ const Profile: React.FC = () => {
 
   return (
     <Layout>
-      <h1 className="profile-heading">{t("myProfile")}</h1>
+      <h1 className="admin-page-heading">{t("myProfile")}</h1>
       <div className="profile-container">
         {userInfo.image ? (
           <Image
@@ -111,30 +111,33 @@ const Profile: React.FC = () => {
             alt="profile-image"
             width={200}
             height={200}
+            className="profile-image"
           />
         ) : (
           <CgProfile size={256} color="#fff" />
         )}
         <form className="profile-info">
-          <label className="profile-name">Username</label>
+          <label className="profile-name">{t("username")}</label>
           <input
             type="text"
+            className="profile-password"
             value={userInfo.username}
             onChange={(e) =>
               setUserInfo({ ...userInfo, username: e.target.value })
             }
             required
           />
-          <label className="profile-lastname">Email</label>
+          <label className="profile-lastname">{t("email")}</label>
           <input
             type="email"
+            className="profile-password"
             value={userInfo.email}
             onChange={(e) =>
               setUserInfo({ ...userInfo, email: e.target.value })
             }
             required
           />
-          <label>Upload Image</label>
+          <label className="profile-name">{t("image")}</label>
           <input type="file" ref={imageRef} required />
           <div className="input-box">
             <input

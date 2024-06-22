@@ -41,6 +41,9 @@ const Contact: React.FC = () => {
   return (
     <Layout>
       <section id="contact" className="contact">
+        <h1 className="contact-heading">
+          <b>C</b>ontact <b>U</b>s
+        </h1>
         <div className="container contact-container">
           <div className="contact-options">
             <article className="contact-option">

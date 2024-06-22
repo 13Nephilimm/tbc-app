@@ -3,12 +3,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(47, 47, 47, 0.7);
 }
 
 .login-container {
   max-width: 60rem;
-  border: solid 3px #a30cfd;
-  box-shadow: 0px 0px 19px 8px rgba(163, 12, 253, 0.4);
+  border: dashed 3px #f99136;
+  box-shadow: 0px 0px 19px 8px rgba(0, 0, 0, 0.7);
   padding: 2.4rem;
   border-radius: 1.6rem;
 }
@@ -16,7 +17,7 @@
 .login-heading {
   font-size: 3.6rem;
   text-align: center;
-  color: #a30cfd;
+  color: #f99136;
   text-transform: uppercase;
   letter-spacing: 3.5px;
   font-weight: 500;
@@ -24,5 +25,14 @@
 
 .account-text {
   font-size: 2.4rem;
-  color: #a30cfd;
+  color: #f99136;
+}
+
+.reg-log-btn {
+  color: #fff;
+  border: none;
+  background-color: transparent;
+  font-size: 2.4rem;
+  padding: 8px;
+  cursor: pointer;
 }

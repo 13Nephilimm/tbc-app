@@ -29,15 +29,15 @@ const Card: React.FC<CardProps> = ({ btnText, product }) => {
         <Image
           src={product.thumbnail}
           alt="featured"
-          width={200}
-          height={200}
+          width={175}
+          height={250}
         />
       </div>
       <div className="card-text">
         <h2 className="product-name">{product.title}</h2>
-        <p className="product-description">{product.description}</p>
+        <p className="product-price">${product.price}</p>
         <button
-          className="secondary-btn btn-buy"
+          className="main-btn btn-buy"
           onClick={() => {
             addProduct();
           }}

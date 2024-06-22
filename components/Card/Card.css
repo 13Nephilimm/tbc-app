@@ -1,22 +1,72 @@
 .card {
   display: flex;
   flex-direction: column;
-  background-color: #1a1d1e;
-  box-shadow: 0px 0px 15px 5px rgba(163, 12, 253, 0.3);
-  border-radius: 1.6rem;
-  height: 44rem;
-  max-width: 28rem;
-  transition: all 0.4s;
+  align-items: center;
+  background-color: rgba(47, 47, 47, 0.7);
+  box-shadow: 2px 2px 20px 8px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+  height: 50rem;
+  max-width: 35rem;
+  padding: 1.6rem;
+  position: relative;
+  transition: all 0.5s;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  border-style: dashed;
+  border-color: #f99136;
+}
+
+.card::before {
+  top: 0;
+  right: 0;
+  width: 75%;
+  height: 30%;
+  border-width: 3px 3px 0 0;
+}
+
+.card::after {
+  bottom: 0;
+  left: 0;
+  width: 75%;
+  height: 30%;
+  border-width: 0 0 3px 3px;
+}
+
+.card:hover::before,
+.card:hover::after {
+  width: 100%;
+  height: 99%;
+  border-width: 3px;
+}
+
+.card:hover::before {
+  top: 0;
+  right: 0;
+  border-width: 3px 0 0 3px;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 5px 20px 8px rgba(163, 12, 253, 0.5);
+  transform: translate(0);
+  box-shadow: none;
+}
+
+.card:hover::after {
+  bottom: 0;
+  left: 0;
+  border-width: 0 3px 3px 0;
 }
 
 .featured-image {
-  padding: 1.6rem 3.6rem 0 3.6rem;
   overflow: hidden;
+  width: 24.5rem;
+  height: 35rem;
+}
+
+.featured-image img {
   width: 100%;
   height: 100%;
 }
@@ -26,7 +76,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1.6rem;
+  padding: 1.2rem;
 }
 
 .product-name {
@@ -35,13 +85,14 @@
   text-align: center;
 }
 
-.product-description {
-  font-size: 1.2rem;
-  color: #8d8e8f;
+.product-price {
+  font-size: 1.8rem;
+  color: #f99136;
   padding: 1rem 1.6rem;
   text-align: center;
 }
 
 .btn-buy {
   font-size: 1.2rem;
+  z-index: 9;
 }

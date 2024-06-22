@@ -18,10 +18,12 @@ const resources = {
       ontact: "ontact",
       p: "P",
       rofile: "rofile",
-      a: "A",
-      dmin: "dmin",
       b: "B",
       log: "log",
+      n: "N",
+      ewProduct: "ew Product",
+      art: "art",
+      ewPost: "ew Post",
 
       // FOOTER
       privacyPolicy: "Privacy Policy",
@@ -34,6 +36,13 @@ const resources = {
       search: "Search...",
       sort: "Sort",
       addToCart: "Add to Cart",
+      a: "A",
+      ll: "ll",
+      ame: "ames",
+      sortBy: "Sort By:",
+      name: "Name",
+      price: "Price",
+      releaseYear: "Release Year",
 
       // CONTACT PAGE
       email: "Email",
@@ -45,8 +54,7 @@ const resources = {
 
       // PROFILE PAGE
       myProfile: "My Profile",
-      name: "Name",
-      lastName: "Lastname",
+      username: "Username",
       newPassword: "New Password",
       confirmNewPassword: "Confirm New Password",
       save: "Save",
@@ -58,6 +66,18 @@ const resources = {
       gaming: "Gaming",
       paradise: "Paradise",
       seeMore: "See More",
+
+      // UPLOAD NEW POST/GAME
+      gameName: "Game Name",
+      description: "Description",
+      genre: "Genre",
+      review: "Review",
+      thumbnail: "Thumbnail",
+      images: "Images",
+      upload: "Upload",
+      title: "Title",
+      image: "Image",
+      body: "Body",
     },
   },
 
@@ -77,10 +97,12 @@ const resources = {
       ontact: "ონტაქტი",
       p: "პ",
       rofile: "როფილი",
-      a: "ა",
-      dmin: "დმინი",
       b: "ბ",
       log: "ლოგი",
+      n: "ა",
+      ewProduct: "ხალი პროდუქტი",
+      art: "ალათა",
+      ewPost: "ხალი პოსტი",
 
       // FOOTER
       privacyPolicy: "კონფიდენციალურობის პოლიტიკა",
@@ -93,6 +115,13 @@ const resources = {
       search: "ძიება...",
       sort: "დალაგება",
       addToCart: "კალათაში დამატება",
+      a: "ყ",
+      ll: "ველა",
+      ame: "როდუქტი",
+      sortBy: "დალაგება:",
+      name: "სახელით",
+      price: "ფასით",
+      releaseYear: "გამოსვლის თარიღით",
 
       // CONTACT PAGE
       email: "მეილი",
@@ -104,8 +133,7 @@ const resources = {
 
       // PROFILE PAGE
       myProfile: "ჩემი პროფილი",
-      name: "სახელი",
-      lastName: "გვარი",
+      username: "მომხმარებლის სახელი",
       newPassword: "ახალი პაროლი",
       confirmNewPassword: "გაიმეორეთ ახალი პაროლი",
       save: "შენახვა",
@@ -117,6 +145,18 @@ const resources = {
       gaming: "გეიმინგ",
       paradise: "სამოთხეში",
       seeMore: "იხილეთ მეტი",
+
+      // UPLOAD NEW POST/GAME
+      gameName: "თამაშის სახელი",
+      description: "აღწერა",
+      genre: "ჟანრი",
+      review: "შეფასება",
+      thumbnail: "გარეკანის ფოტო",
+      images: "დამატებითი ფოტოები",
+      upload: "ატვირთვა",
+      title: "სათაური",
+      image: "ფოტო",
+      body: "ტექსტი",
     },
   },
 };

@@ -10,6 +10,8 @@ export interface Product {
   title: string;
   thumbnail: string;
   description: string;
+  price: number;
+  releaseYear: number; // Added release year
 }
 
 export interface Props {
@@ -20,7 +22,7 @@ const ProductsGrid: React.FC<Props> = ({ products }) => {
   const { t } = useTranslation();
 
   const [search, setSearch] = useState<string>("");
-  const [sorted, setSorted] = useState<boolean>(false);
+  const [sortBy, setSortBy] = useState<string>("");
 
   const allProducts: Product[] = products.filter((product) => {
     return search.toLowerCase() === ""
@@ -28,12 +30,20 @@ const ProductsGrid: React.FC<Props> = ({ products }) => {
       : product.title.toLowerCase().includes(search.toLowerCase());
   });
 
-  const sortedProducts: Product[] = sorted
-    ? [...allProducts].sort((a, b) => a.title.localeCompare(b.title))
-    : allProducts;
+  const sortedProducts: Product[] = [...allProducts].sort((a, b) => {
+    if (sortBy === "name") {
+      return a.title.localeCompare(b.title);
+    } else if (sortBy === "price") {
+      return a.price - b.price;
+    } else if (sortBy === "releaseYear") {
+      return a.releaseYear - b.releaseYear;
+    } else {
+      return 0;
+    }
+  });
 
-  const toggleSort = () => {
-    setSorted(!sorted);
+  const handleSort = (criteria: string) => {
+    setSortBy(criteria);
   };
 
   useEffect(() => {
@@ -48,6 +58,12 @@ const ProductsGrid: React.FC<Props> = ({ products }) => {
 
   return (
     <>
+      <h1 className="games-heading">
+        <b>{t("a")}</b>
+        {t("ll")}
+        <b>{t("g")}</b>
+        {t("ame")}
+      </h1>
       <div className="search-section">
         <div className="search-container">
           <MdSearch size="3.6rem" className="search-icon" />
@@ -59,9 +75,21 @@ const ProductsGrid: React.FC<Props> = ({ products }) => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <button className="secondary-btn sort-btn" onClick={toggleSort}>
-          {t("sort")}
-        </button>
+        <h3 className="sort-by">{t("sortBy")}</h3>
+        <div className="sorting-btns">
+          <button className="sort-btn" onClick={() => handleSort("name")}>
+            {t("name")}
+          </button>
+          <button className="sort-btn" onClick={() => handleSort("price")}>
+            {t("price")}
+          </button>
+          <button
+            className="sort-btn"
+            onClick={() => handleSort("releaseYear")}
+          >
+            {t("releaseYear")}
+          </button>
+        </div>
       </div>
       <div className="products-grid">
         {sortedProducts.map((product) => {

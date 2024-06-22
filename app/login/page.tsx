@@ -16,12 +16,16 @@ export default function Login(): JSX.Element {
         {register ? (
           <p className="account-text">
             Already have an account?
-            <button onClick={() => setRegister(false)}>Login</button>
+            <button onClick={() => setRegister(false)} className="reg-log-btn">
+              Login
+            </button>
           </p>
         ) : (
           <p className="account-text">
             Don`t have an account?
-            <button onClick={() => setRegister(true)}>Register</button>
+            <button onClick={() => setRegister(true)} className="reg-log-btn">
+              Register
+            </button>
           </p>
         )}
       </div>

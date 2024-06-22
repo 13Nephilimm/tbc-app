@@ -1,29 +1,45 @@
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 3.6rem;
   padding: 6.4rem;
   margin: 0 auto;
   max-width: 138rem;
 }
 
+.games-heading {
+  font-size: 4.4rem;
+  padding: 4.8rem;
+  color: #000;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 9.6rem;
+  letter-spacing: 4px;
+}
+
+.games-heading b {
+  color: #f99136;
+  font-size: 4.8rem;
+}
+
 .search-section {
-  max-width: 138rem;
+  max-width: 70rem;
   margin: 2.4rem auto 0 auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 9.6rem;
+  gap: 2.4rem;
 }
 
 .search-container {
+  width: 100%;
   display: flex;
   align-items: center;
-  background-color: #1a1d1e;
+  background-color: rgba(47, 47, 47, 0.7);
   padding: 5px;
-  border-radius: 1.6rem;
-  border: 3px solid #a30cfd;
-  box-shadow: 0px 0px 15px 5px rgba(163, 12, 253, 0.3);
+  border: 2px dashed #f99136;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.3);
 }
 
 .search-icon {
@@ -31,18 +47,54 @@
 }
 
 .search-input {
-  background-color: #1a1d1e;
-  border-radius: 1.6rem;
+  background-color: transparent;
   border: none;
-  padding: 8px;
+  padding: 1.6rem;
   width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  color: #fff;
 }
 
 .search-input::placeholder {
   color: #fff;
   font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .search-input:focus {
   outline: none;
+}
+
+.sort-by {
+  text-align: center;
+  color: #000;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+}
+
+.sorting-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.6rem;
+}
+
+.sort-btn {
+  color: #fffbf5;
+  background-color: rgba(47, 47, 47, 0.7);
+  transition: all 0.3s;
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+  font-size: 1.8rem;
+  padding: 2.4rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.sort-btn:hover {
+  transform: scale(0.9);
+  color: #f99136;
+  cursor: pointer;
 }
