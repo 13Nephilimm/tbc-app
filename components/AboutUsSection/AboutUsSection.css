@@ -1,0 +1,41 @@
+.about-us-section {
+  display: grid;
+  grid-template-columns: 40fr 60fr;
+  align-content: center;
+  justify-items: center;
+  padding: 9.6rem 2.4rem;
+}
+
+.about-us-heading {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 4.4rem;
+  color: #000;
+  padding: 1.6rem;
+}
+
+.about-us-heading b {
+  font-size: 4.8rem;
+  color: #f99136;
+  font-weight: 700;
+  text-shadow: 0 0px 20px #f99136;
+}
+
+.about-us-text {
+  font-size: 2.4rem;
+  color: #fff;
+  font-weight: 500;
+  margin-top: 1.2rem;
+  padding: 1.6rem;
+}
+
+.about-us-img-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-us-image {
+  width: 43.5rem;
+  height: 24.5rem;
+}

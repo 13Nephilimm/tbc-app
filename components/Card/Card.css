@@ -10,6 +10,7 @@
   padding: 1.6rem;
   position: relative;
   transition: all 0.5s;
+  cursor: pointer;
 }
 
 .card::before,
@@ -95,4 +96,8 @@
 .btn-buy {
   font-size: 1.2rem;
   z-index: 9;
+}
+
+.image-link {
+  z-index: 99;
 }

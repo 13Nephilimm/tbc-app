@@ -3,13 +3,6 @@ import "./single-blog.css";
 import Image from "next/image";
 import Layout from "../../../../components/Layout/Layout";
 
-interface Post {
-  id: number;
-  title: string;
-  body: string;
-  image: string;
-}
-
 interface SinglePost {
   id: string;
   title: string;

@@ -1,7 +1,7 @@
 import { sql } from "@vercel/postgres";
 import { validateJWT } from "../../../utils/functions";
-import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
+import { cookies } from "next/headers";
 
 export const GET = async (req: NextRequest) => {
   try {
@@ -11,24 +11,23 @@ export const GET = async (req: NextRequest) => {
       (err) => console.log(err)
     );
 
-    const productsData = await sql`SELECT
-    products.title,
-    products.description,
-    products.price,
-    products.discount_percentage,
-    products.rating,
-    products.stock,
-    products.brand,
-    products.category,
-    products.thumbnail,
-    cart.id,
-    cart.quantity
-    FROM
-      cart
-    JOIN
-      products ON cart.product_id = products.id
-    WHERE
-      cart.user_id = ${info.id};`;
+    const productsData = await sql`
+      SELECT
+        games.title,
+        games.description,
+        games.price,
+        games.rating,
+        games.category,
+        games.thumbnail,
+        cart.id AS cart_id,
+        cart.quantity
+      FROM
+        cart
+      JOIN
+        games ON cart.product_id = games.id
+      WHERE
+        cart.user_id = ${info.id};
+    `;
 
     return NextResponse.json(
       { msg: "success", data: productsData.rows },
@@ -51,15 +50,20 @@ export const POST = async (request: Request) => {
       console.log(err)
     );
 
-    const data =
-      await sql`SELECT * FROM cart WHERE product_id = ${body.product_id} AND user_id = ${info.id};`;
+    const data = await sql`
+      SELECT * FROM cart WHERE product_id = ${body.product_id} AND user_id = ${info.id};
+    `;
 
     if (data.rows.length > 0) {
-      await sql`UPDATE cart SET quantity = quantity + 1 WHERE product_id = ${body.product_id} AND user_id = ${info.id};`;
+      await sql`
+        UPDATE cart SET quantity = quantity + 1 WHERE product_id = ${body.product_id} AND user_id = ${info.id};
+      `;
 
-      const quantity = await sql`SELECT SUM(quantity) AS total_quantity
-      FROM cart
-      WHERE user_id = ${info.id}`;
+      const quantity = await sql`
+        SELECT SUM(quantity) AS total_quantity
+        FROM cart
+        WHERE user_id = ${info.id};
+      `;
 
       return NextResponse.json(
         {
@@ -70,16 +74,16 @@ export const POST = async (request: Request) => {
       );
     }
 
-    await sql`INSERT INTO cart (user_id, product_id, quantity, created_at, updated_at)
-        VALUES (${info.id}, ${
-      body.product_id
-    }, ${1}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);`.catch((err) =>
-      console.log(err)
-    );
+    await sql`
+      INSERT INTO cart (user_id, product_id, quantity)
+      VALUES (${info.id}, ${body.product_id}, ${1});
+    `;
 
-    const quantity = await sql`SELECT SUM(quantity) AS total_quantity
+    const quantity = await sql`
+      SELECT SUM(quantity) AS total_quantity
       FROM cart
-      WHERE user_id = ${info.id}`;
+      WHERE user_id = ${info.id};
+    `;
 
     return NextResponse.json(
       {
@@ -89,6 +93,7 @@ export const POST = async (request: Request) => {
       { status: 201 }
     );
   } catch (error) {
+    console.log(error);
     return new Response("Failed to add product", {
       status: 400,
     });
@@ -109,29 +114,31 @@ export const PATCH = async (req: NextRequest) => {
       await sql`
         UPDATE cart
         SET quantity = quantity + 1
-        WHERE id = ${args.id}
+        WHERE id = ${args.id};
       `;
     }
     if (args.method === "dec") {
       await sql`
         UPDATE cart
         SET quantity = quantity - 1
-        WHERE id = ${args.id} AND quantity > 0
+        WHERE id = ${args.id} AND quantity > 0;
       `;
 
       const { rows } = await sql`
-        SELECT quantity FROM cart WHERE id = ${args.id}
+        SELECT quantity FROM cart WHERE id = ${args.id};
       `;
       if (rows.length > 0 && rows[0].quantity === 0) {
         await sql`
-          DELETE FROM cart WHERE id = ${args.id}
+          DELETE FROM cart WHERE id = ${args.id};
         `;
       }
     }
 
-    const sumQuantity = await sql`SELECT SUM(quantity) AS total_quantity
+    const sumQuantity = await sql`
+      SELECT SUM(quantity) AS total_quantity
       FROM cart
-      WHERE user_id = ${info.id}`;
+      WHERE user_id = ${info.id};
+    `;
 
     return NextResponse.json(
       {
@@ -156,8 +163,9 @@ export const DELETE = async (req: NextRequest) => {
   );
 
   try {
-    await sql`DELETE FROM cart
-    WHERE user_id = ${info.id};
+    await sql`
+      DELETE FROM cart
+      WHERE user_id = ${info.id};
     `;
     return NextResponse.json(
       { msg: "Product quantity changed!" },

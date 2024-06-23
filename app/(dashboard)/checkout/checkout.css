@@ -1,8 +1,16 @@
 .checkout-heading {
   text-align: center;
   padding: 4.8rem;
-  color: #fff;
+  color: #000;
+  text-transform: uppercase;
+  font-size: 4.4rem;
+  margin-top: 9.6rem;
+}
+
+.checkout-heading b {
+  color: #f99136;
   font-size: 4.8rem;
+  text-transform: uppercase;
 }
 
 .checkout-container {
@@ -13,9 +21,9 @@
 .checkout-products {
   font-size: 2.4rem;
   color: #fff;
-  border: 1px solid #fff;
+  border: 2px dashed #f99136;
   padding: 1.6rem;
-  margin: 1.6rem;
+  margin: 1.6rem 0 0 0;
   position: relative;
   display: flex;
   align-items: center;

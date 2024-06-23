@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./ProductsGrid.css";
 import { MdSearch } from "react-icons/md";
 import Card from "../Card/Card";
-import Link from "next/link";
 import { useTranslation } from "react-i18next";
 
 export interface Product {
@@ -95,9 +94,11 @@ const ProductsGrid: React.FC<Props> = ({ products }) => {
         {sortedProducts.map((product) => {
           return (
             <div key={product.id}>
-              <Link href={`/products/${product.id}`}>
-                <Card product={product} btnText={t("addToCart")} />
-              </Link>
+              <Card
+                product={product}
+                btnText={t("addToCart")}
+                imageLink={`/products/${product.id}`}
+              />
             </div>
           );
         })}

@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import "./CartItem.css";
 import { getToken, setCartTotalCookie } from "../../utils/actions";
+import Image from "next/image";
 
 const CartItem = ({ product, deleteCartItem }: any) => {
   const [quantity, setQuantity] = useState(product.quantity);
 
-  async function changeQuantity(id: number, method: "inc" | "dec") {
+  async function changeQuantity(cart_id: number, method: "inc" | "dec") {
     if (method === "inc") {
       setQuantity(quantity + 1);
     }
     if (method === "dec") {
       setQuantity((prevState: any) => {
         if (prevState === 1) {
-          deleteCartItem(id);
+          deleteCartItem(cart_id);
         }
         return prevState - 1;
       });
@@ -21,7 +22,7 @@ const CartItem = ({ product, deleteCartItem }: any) => {
     const token: any = await getToken();
     const result = await fetch("api/cart", {
       method: "PATCH",
-      body: JSON.stringify({ id: id, method: method }),
+      body: JSON.stringify({ id: cart_id, method: method }),
       headers: {
         Authorization: `${token.value}`,
         "Content-Type": "application/json",
@@ -32,21 +33,30 @@ const CartItem = ({ product, deleteCartItem }: any) => {
     setCartTotalCookie(data.data);
   }
 
+  console.log(product);
   return (
     <div className="checkout-products">
-      <span>ID: {product.id}</span> <span>Count: {quantity}</span>
+      <Image
+        className="cart-image"
+        alt="cart-image"
+        width={100}
+        height={100}
+        src={product.thumbnail}
+      />{" "}
+      <span>{product.title}</span>
+      <span>Count: {quantity}</span>
       <button
-        className="secondary-btn increment-button"
+        className="main-btn increment-button"
         onClick={() => {
-          changeQuantity(product.id, "inc");
+          changeQuantity(product.cart_id, "inc");
         }}
       >
         +
       </button>
       <button
-        className="secondary-btn decrement-button"
+        className="main-btn decrement-button"
         onClick={() => {
-          changeQuantity(product.id, "dec");
+          changeQuantity(product.cart_id, "dec");
         }}
       >
         -

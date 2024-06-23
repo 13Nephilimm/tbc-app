@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 
 export const setCartTotalCookie = async (total: number) => {
   const cookieStore = cookies();
-  cookieStore.set("cart_total", total.toString());
+  cookieStore.set("cart_total", total?.toString());
 };
 
 export const getCartTotalCookie = async () => {

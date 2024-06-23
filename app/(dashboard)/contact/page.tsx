@@ -49,7 +49,7 @@ const Contact: React.FC = () => {
             <article className="contact-option">
               <MdOutlineMail className="contact-option-icon" />
               <h4>{t("email")}</h4>
-              <h5>purplestore@gmail.com</h5>
+              <h5>gamezy@gmail.com</h5>
               <a
                 href="mailto:jekokharabadze@gmail.com"
                 target="_blank"
@@ -61,7 +61,7 @@ const Contact: React.FC = () => {
             <article className="contact-option">
               <RiMessengerLine className="contact-option-icon" />
               <h4>{t("messenger")}</h4>
-              <h5>Purple Store</h5>
+              <h5>Gamezy</h5>
               <a
                 href="https://m.me/xarabadzejeko"
                 target="_blank"
@@ -73,7 +73,7 @@ const Contact: React.FC = () => {
             <article className="contact-option">
               <AiOutlinePhone className="contact-option-icon" />
               <h4>{t("phoneNumber")}</h4>
-              <h5>+995 599 1000 69</h5>
+              <h5>+995 599 10 00 69</h5>
               <a href="#contact">{t("callMe")}</a>
             </article>
           </div>

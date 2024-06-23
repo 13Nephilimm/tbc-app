@@ -5,6 +5,7 @@ import "./checkout.css";
 import Layout from "../../../components/Layout/Layout";
 import { getToken, setCartTotalCookie } from "../../../utils/actions";
 import CartItem from "../../../components/CartItem/CartItem";
+import { useTranslation } from "react-i18next";
 
 interface CartItem {
   id: number;
@@ -12,6 +13,7 @@ interface CartItem {
 }
 
 const CheckoutPage: React.FC = () => {
+  const { t } = useTranslation();
   const [cartItem, setCartItem] = useState([]);
 
   useEffect(() => {
@@ -57,13 +59,16 @@ const CheckoutPage: React.FC = () => {
 
   return (
     <Layout>
-      <h1 className="checkout-heading">Checkout</h1>
+      <h1 className="checkout-heading">
+        <b>{t("C")}</b>
+        {t("art")}
+      </h1>
       <div className="checkout-container">
         <button
           onClick={() => {
             resetCart();
           }}
-          className="secondary-btn"
+          className="main-btn"
         >
           Reset Cart
         </button>

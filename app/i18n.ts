@@ -66,6 +66,19 @@ const resources = {
       gaming: "Gaming",
       paradise: "Paradise",
       seeMore: "See More",
+      what: "What",
+      weOffer: "We Offer?",
+      gameAccess: "Instant Game Access",
+      rewards: "Exclusive Rewards",
+      prices: "Best Prices",
+      about: "About",
+      us: "Us",
+      aboutText1:
+        "Welcome to Gamezy, your ultimate destination for all things gaming. At Gamezy, we are passionate about providing gamers with a seamless experience to explore, purchase, and enjoy the latest video games. Our curated collection spans genres and platforms, ensuring there is something for every gamer.",
+      aboutText2:
+        "In addition to offering a diverse selection of games for sale, we also delve deep into the world of gaming through our insightful blog posts. Whether you are looking for game reviews, industry news, or gaming tips, our blog is your go-to source.",
+      aboutText3:
+        "Join us at Gamezy as we continue to celebrate the artistry and excitement of gaming, keeping you engaged and informed every step of the way.",
 
       // UPLOAD NEW POST/GAME
       gameName: "Game Name",
@@ -145,6 +158,19 @@ const resources = {
       gaming: "გეიმინგ",
       paradise: "სამოთხეში",
       seeMore: "იხილეთ მეტი",
+      what: "რას",
+      weOffer: "გთავაზობთ?",
+      gameAccess: "თამაშზე მყისიერი წვდომა",
+      rewards: "ექსკლუზიური ჯილდოები",
+      prices: "საუკეთესო ფასები",
+      about: "ჩვენ",
+      us: "შესახებ",
+      aboutText1:
+        "კეთილი იყოს თქვენი მობრძანება Gamezy-ში, თქვენი საბოლოო დანიშნულების ადგილი თამაშებისთვის. Gamezy-ში ჩვენ ვნებიანად ვთავაზობთ მოთამაშეებს უწყვეტი გამოცდილებით, რათა შეისწავლონ, შეიძინონ და ისიამოვნონ უახლესი ვიდეო თამაშებით. ჩვენი კურირებული კოლექცია მოიცავს ჟანრებსა და პლატფორმებს, რაც უზრუნველყოფს, რომ არსებობს რაღაც ყველა მოთამაშისთვის.",
+      aboutText2:
+        "გარდა იმისა, რომ გთავაზობთ გასაყიდი თამაშების მრავალფეროვან არჩევანს, ჩვენ ასევე ღრმად შევდივართ თამაშების სამყაროში ჩვენი გამჭრიახი ბლოგის პოსტებით. მიუხედავად იმისა, ეძებთ თამაშის მიმოხილვებს, ინდუსტრიის სიახლეებს ან სათამაშო რჩევებს, ჩვენი ბლოგი არის თქვენი მთავარი წყარო.",
+      aboutText3:
+        "შემოგვიერთდით Gamezy-ში, რადგან ჩვენ ვაგრძელებთ თამაშების მხატვრულობისა და აღფრთოვანების აღნიშვნას, გქონდეთ ჩართულები და ინფორმირებულები გზის ყოველ ნაბიჯზე.",
 
       // UPLOAD NEW POST/GAME
       gameName: "თამაშის სახელი",
