@@ -216,6 +216,10 @@ header.header-hidden {
   display: none;
 }
 
+.header.header-hidden {
+  display: flex;
+}
+
 @media only screen and (max-width: 1080px) {
   .hamburger {
     display: flex;
@@ -224,6 +228,10 @@ header.header-hidden {
   header.header-visible {
     display: flex;
     position: fixed;
+  }
+
+  .header.header-hidden {
+    display: none;
   }
 }
 

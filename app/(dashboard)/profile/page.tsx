@@ -103,7 +103,7 @@ const Profile: React.FC = () => {
 
   return (
     <Layout>
-      <h1 className="admin-page-heading">{t("myProfile")}</h1>
+      <h1 className="profile-heading">{t("myProfile")}</h1>
       <div className="profile-container">
         {userInfo.image ? (
           <Image

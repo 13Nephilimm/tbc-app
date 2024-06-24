@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
+  row-gap: 3.6rem !important;
   gap: 3.6rem;
   padding: 3.6rem;
 }
@@ -19,4 +20,23 @@
 .blog-main-heading b {
   color: #f99136;
   font-size: 4.8rem;
+}
+
+@media screen and (max-width: 1680px) {
+  .blog-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .blog-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .blog-container {
+    grid-template-columns: 1fr;
+  }
 }

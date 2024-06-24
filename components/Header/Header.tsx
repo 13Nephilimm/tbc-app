@@ -100,11 +100,12 @@ const Header: React.FC = () => {
         <div className="bar3"></div>
       </div>
       <header
-        className={
-          windowWidth > 1080 || isMobileMenuOpen
-            ? "header-visible"
-            : "header-hidden"
-        }
+        className={`header
+          ${
+            windowWidth > 1080 || isMobileMenuOpen
+              ? "header-visible"
+              : "header-hidden"
+          }`}
       >
         <div className="upper-nav">
           <div className="logo-container">
