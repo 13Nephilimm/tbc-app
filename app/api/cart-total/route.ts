@@ -1,9 +1,9 @@
 import { sql } from "@vercel/postgres";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { validateJWT } from "../../../utils/functions";
 import { cookies } from "next/headers";
 
-export const GET = async (req: NextRequest) => {
+export const GET = async () => {
   const cookieStore = cookies();
   const token = cookieStore.get("token");
 

@@ -2,3 +2,9 @@
   display: grid;
   grid-template-columns: 1fr 10fr;
 }
+
+@media only screen and (max-width: 1080px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

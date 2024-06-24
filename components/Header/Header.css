@@ -20,7 +20,7 @@ header {
 nav ul {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   gap: 3.6rem;
 }
 
@@ -177,4 +177,52 @@ input:checked + .slider::after {
 .main-btn:hover {
   border: #f99136 2px dashed;
   background-color: #000;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #f99136;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger Icon Active State */
+.hamburger.active .bar1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active .bar2 {
+  opacity: 0;
+}
+
+.hamburger.active .bar3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Header visibility */
+header.header-hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 1080px) {
+  .hamburger {
+    display: flex;
+  }
+
+  header.header-visible {
+    display: none;
+    position: fixed;
+  }
 }

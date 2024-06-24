@@ -9,8 +9,7 @@ const RegisterForm = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  //   const [role, setRole] = useState<string>("");
-  const role = "admin";
+  const [role, setRole] = useState<string>("user");
   const router = useRouter();
 
   return (
@@ -68,6 +67,17 @@ const RegisterForm = () => {
         }}
         required
       />
+      <label>Role</label>
+      <select
+        name="role"
+        onChange={(e) => {
+          setRole(e.target.value);
+        }}
+        required
+      >
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+      </select>
 
       <button className="btn-login" type="submit">
         Login

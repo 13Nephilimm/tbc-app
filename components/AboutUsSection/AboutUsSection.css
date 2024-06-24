@@ -39,3 +39,52 @@
   width: 43.5rem;
   height: 24.5rem;
 }
+
+@media only screen and (max-width: 1400px) {
+  .about-us-heading {
+    font-size: 4rem;
+  }
+
+  .about-us-heading b {
+    font-size: 4.4rem;
+  }
+
+  .about-us-text {
+    font-size: 1.6rem;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  .about-us-image {
+    width: 30.4rem;
+    height: 17.1rem;
+  }
+
+  .about-us-section {
+    grid-template-columns: 30fr 70fr;
+  }
+}
+
+@media only screen and (max-width: 790px) {
+  .about-us-section {
+    grid-template-columns: 1fr;
+  }
+
+  .about-us-image {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 505px) {
+  .about-us-heading {
+    font-size: 3.6rem;
+  }
+
+  .about-us-heading b {
+    font-size: 4rem;
+  }
+
+  .about-us-text {
+    font-size: 1.4rem;
+  }
+}

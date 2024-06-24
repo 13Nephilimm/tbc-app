@@ -1,4 +1,3 @@
-import Image from "next/image";
 import "./single-product.css";
 import Layout from "../../../../components/Layout/Layout";
 import ProductSwiper from "../../../../components/Swiper/ProductSwiper";

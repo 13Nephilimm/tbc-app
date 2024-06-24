@@ -52,3 +52,31 @@
   margin-top: 4.8rem;
   padding: 8px 36px;
 }
+
+@media only screen and (max-width: 1400px) {
+  .hero-heading {
+    font-size: 5.2rem;
+  }
+
+  .hero-heading span {
+    font-size: 5rem;
+  }
+
+  .hero-link {
+    font-size: 2rem !important;
+  }
+}
+
+@media only screen and (max-width: 505px) {
+  .hero-heading {
+    font-size: 3.6rem;
+  }
+
+  .hero-heading span {
+    font-size: 4rem;
+  }
+
+  .hero-link {
+    font-size: 1.8rem !important;
+  }
+}

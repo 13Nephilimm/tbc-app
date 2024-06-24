@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export default function middleware(request: NextRequest) {
   let token = request.cookies.get("token");
+
   let language = request.cookies.get("language");
 
   if (
@@ -24,8 +25,6 @@ export default function middleware(request: NextRequest) {
     request.nextUrl.pathname === "/api/all-blogs" ||
     request.nextUrl.pathname === "/api/get-single-blog" ||
     request.nextUrl.pathname === "/api/get-single-product"
-    // request.nextUrl.pathname === "/api/auth/users" ||
-    // request.nextUrl.pathname === "/api/product"
   ) {
     return NextResponse.next();
   }

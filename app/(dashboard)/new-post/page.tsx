@@ -1,10 +1,18 @@
 "use client";
 
-import React, { ChangeEvent, FormEvent, useRef, useState } from "react";
+import React, {
+  ChangeEvent,
+  FormEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import "./new-post.css";
 import Layout from "../../../components/Layout/Layout";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import { getUserRole } from "../../../utils/actions";
+import { useRouter } from "next/navigation";
 
 const NewPostPage = () => {
   const { t } = useTranslation();
@@ -53,6 +61,28 @@ const NewPostPage = () => {
       });
     }
   };
+
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    getUserRole().then((res) => {
+      console.log(res);
+      if (res === "admin") {
+        setLoading(false);
+      } else {
+        router.push("/");
+      }
+    });
+  }, [router]);
+
+  if (loading) {
+    return (
+      <div className="loader-container">
+        <div className="loader"></div>
+      </div>
+    );
+  }
 
   return (
     <Layout>

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import "./UpdateUserButton.css";
-import { User } from "../../api";
+import { User } from "../../utils/functions";
 
 export default function UpdateUserButton({
   id,
