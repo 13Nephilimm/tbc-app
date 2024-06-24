@@ -51,7 +51,7 @@ const SingleProductPage = async ({ params }: { params: { id: string } }) => {
           <p className="single-product-description">{product.description}</p>
           <div className="single-product-details-box">
             <p className="single-product-rating">
-              Rating: {product.rating}/101
+              Rating: {product.rating}/100
             </p>
             <p className="single-product-price">Price: ${product.price}</p>
           </div>
