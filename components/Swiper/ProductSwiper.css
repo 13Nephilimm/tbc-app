@@ -26,3 +26,24 @@
 .swiper-pagination-bullet-active {
   background: #f99136 !important;
 }
+
+@media screen and (max-width: 1280px) {
+  .single-game-swiper {
+    width: 57.6rem;
+    height: 32.4rem;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .single-game-swiper {
+    width: 40.3rem;
+    height: 22.6rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .single-game-swiper {
+    width: 32.2rem;
+    height: 18rem;
+  }
+}

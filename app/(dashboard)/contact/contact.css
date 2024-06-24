@@ -1,6 +1,5 @@
 .contact {
   padding: 4.8rem 1.6rem;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,5 +105,13 @@ textarea::placeholder {
   .container.contact-container {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .contact-heading {
+    font-size: 2.4rem;
+  }
+
+  .contact-heading b {
+    font-size: 3rem;
   }
 }

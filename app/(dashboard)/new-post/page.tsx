@@ -13,6 +13,8 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { getUserRole } from "../../../utils/actions";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import Toast from "../../../components/Toast/Toast";
 
 const NewPostPage = () => {
   const { t } = useTranslation();
@@ -60,6 +62,17 @@ const NewPostPage = () => {
         body: JSON.stringify(post),
       });
     }
+    toast.success("Added to posts");
+
+    setPost({
+      title: "",
+      body: "",
+      image: "",
+    });
+    setImage({});
+    if (imageRef.current) {
+      imageRef.current.value = "";
+    }
   };
 
   const [loading, setLoading] = useState(true);
@@ -86,6 +99,7 @@ const NewPostPage = () => {
 
   return (
     <Layout>
+      <Toast />
       <h1 className="admin-page-heading">
         <b>{t("n")}</b>
         {t("ewPost")}

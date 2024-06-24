@@ -13,6 +13,8 @@ import Layout from "../../../components/Layout/Layout";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
 import { getUserRole } from "../../../utils/actions";
+import { toast } from "react-toastify";
+import Toast from "../../../components/Toast/Toast";
 
 const UploadPage = () => {
   const [product, setProduct] = useState<any>({
@@ -67,6 +69,26 @@ const UploadPage = () => {
         images: imageBlobs ? imageBlobs : [],
       }),
     });
+    toast.success("Added to products");
+
+    setProduct({
+      title: "",
+      description: "",
+      price: "",
+      release_year: "",
+      category: "",
+      rating: "",
+      thumbnail: "",
+      images: [],
+    });
+    setThumbnail({});
+    setImages([]);
+    if (inputImageRef.current) {
+      inputImageRef.current.value = "";
+    }
+    if (inputImagesRef.current) {
+      inputImagesRef.current.value = "";
+    }
   };
 
   const handleChange = (
@@ -145,6 +167,7 @@ const UploadPage = () => {
 
   return (
     <Layout>
+      <Toast />
       <h1 className="admin-page-heading">
         <b>{t("n")}</b>
         {t("ewProduct")}

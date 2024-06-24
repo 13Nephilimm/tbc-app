@@ -44,3 +44,22 @@ export const getUserRole = async () => {
     return info.role;
   }
 };
+
+export const getSystemPreferences = async () => {
+  const cookieStore = cookies();
+  const theme = cookieStore.get("theme");
+
+  return {
+    theme: theme ? theme.value : "",
+  };
+};
+
+export const setSystemPreferences = async (preferences: { theme: string }) => {
+  const cookieStore = cookies();
+  cookieStore.set("theme", preferences.theme);
+  const theme = cookieStore.get("theme");
+
+  return {
+    theme: theme?.value,
+  };
+};

@@ -222,7 +222,17 @@ header.header-hidden {
   }
 
   header.header-visible {
-    display: none;
+    display: flex;
     position: fixed;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .upper-nav {
+    gap: 2.4rem;
+  }
+
+  nav ul {
+    gap: 1.6rem;
   }
 }

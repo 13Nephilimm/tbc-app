@@ -42,5 +42,30 @@
 .single-product-btn {
   margin-top: 4.8rem;
   margin-bottom: 9.6rem;
-  font-size: 3.6rem;
+  font-size: 2.8rem !important;
 }
+
+@media screen and (max-width: 1280px) {
+  .single-product-description {
+    padding: 3.6rem 1.6rem;
+  }
+
+  .single-product-details-box {
+    padding: 0 1.6rem;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .single-product-title {
+    font-size: 2.4rem;
+  }
+
+  .single-product-btn {
+    font-size: 1.6rem !important;
+  }
+
+  .single-product-details-box {
+    font-size: 1.8rem;
+  }
+}
+

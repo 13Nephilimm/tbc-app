@@ -1,8 +1,10 @@
 import "./single-product.css";
 import Layout from "../../../../components/Layout/Layout";
 import ProductSwiper from "../../../../components/Swiper/ProductSwiper";
+import AddToCart from "../../../../components/AddToCart/AddToCart";
+import Toast from "../../../../components/Toast/Toast";
 
-interface Product {
+export interface Product {
   id: string;
   title: string;
   thumbnail: string;
@@ -42,9 +44,11 @@ const SingleProductPage = async ({ params }: { params: { id: string } }) => {
   const { id } = params;
   try {
     const product = await fetchProducts(id);
+    console.log(product.id);
 
     return (
       <Layout>
+        <Toast />
         <div className="single-product-container">
           <ProductSwiper images={product.images} />
           <h1 className="single-product-title">{product.title}</h1>
@@ -63,7 +67,7 @@ const SingleProductPage = async ({ params }: { params: { id: string } }) => {
               Release Year: {product.release_year}
             </p>
           </div>
-          <button className="main-btn single-product-btn">Add to Cart</button>
+          <AddToCart product={product} />
         </div>
       </Layout>
     );

@@ -3,6 +3,7 @@ import "./ProductsGrid.css";
 import { MdSearch } from "react-icons/md";
 import Card from "../Card/Card";
 import { useTranslation } from "react-i18next";
+import Toast from "../Toast/Toast";
 
 export interface Product {
   id: number;
@@ -57,6 +58,7 @@ const ProductsGrid: React.FC<Props> = ({ products }) => {
 
   return (
     <>
+      <Toast />
       <h1 className="games-heading">
         <b>{t("a")}</b>
         {t("ll")}

@@ -57,6 +57,9 @@ const Header: React.FC = () => {
 
   // Hamburger Menu State
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -64,16 +67,27 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 1080) {
-        setIsMobileMenuOpen(false);
+      if (typeof window !== "undefined") {
+        setWindowWidth(window.innerWidth);
       }
     };
 
-    window.addEventListener("resize", handleResize);
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", handleResize);
+    }
+
     return () => {
-      window.removeEventListener("resize", handleResize);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
+      }
     };
   }, []);
+
+  useEffect(() => {
+    if (windowWidth > 1080) {
+      setIsMobileMenuOpen(false);
+    }
+  }, [windowWidth]);
 
   return (
     <>
@@ -87,9 +101,7 @@ const Header: React.FC = () => {
       </div>
       <header
         className={
-          typeof window !== undefined ||
-          window.innerWidth > 1080 ||
-          isMobileMenuOpen
+          windowWidth > 1080 || isMobileMenuOpen
             ? "header-visible"
             : "header-hidden"
         }
