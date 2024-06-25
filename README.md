@@ -6,7 +6,7 @@ TOOLS: GIT, Visual Studio Code.
 
 Instruction - How to run this project on your local machine (WITHOUT .ENV FILE YOU CAN'T RUN PROJECT):
 
-Download the project zip file or run the following git command to clone the files to your machine: " git clone https://github.com/13Nephilimm/TBC-x-USAID/ "
+Download the project zip file or run the following git command to clone the files to your machine: " git clone https://github.com/13Nephilimm/TBC-x-USAID/](https://github.com/13Nephilimm/tbc-app.git "
 Once the files are on your machine, open the tbc-app folder in Visual Studio Code.
 Then you should use terminal and type: 'npm i'
 And finally you can run the project with command - 'npm run dev'
